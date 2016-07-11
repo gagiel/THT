@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="1" ID="" Name="36JDMZJ" ImagePath="36JDMZJ\001002.jpg"
+	OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="5701724"
+					CompareType="0" Charset="" Text="[\U&lt;]{36}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1545" Top="7166" Right="9601" Bottom="7698" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6946927"
+					CompareType="0" Charset="" Text="[\U\D&lt;]{36}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1491" Top="7882" Right="9588" Bottom="8471" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

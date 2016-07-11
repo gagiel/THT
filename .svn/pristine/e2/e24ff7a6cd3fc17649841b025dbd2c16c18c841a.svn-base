@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="90" ID="13" Name="Philippines"
+	ImagePath="44JDMZJ\HZ\FEILVBIN\017057.jpg" OutputID="632">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="P[\U&lt;]PHL[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="276" Top="8259" Right="9365" Bottom="8684" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="\U{2}\D{8}PHL\D{7}[FM][\D\U&lt;]{23}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="290" Top="8926" Right="9372" Bottom="9381" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

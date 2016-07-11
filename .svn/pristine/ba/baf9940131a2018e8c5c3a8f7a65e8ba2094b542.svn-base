@@ -1,0 +1,9 @@
+[PROPERTY]
+;是否保存，1保存，0不保存
+Status=0
+;样本保存的路径,格式如d:\一级目录\二级目录\
+Path=c:\Wintone\Samples\
+;最大样本数，文件夹中保存的样本数量
+MaxNum=200
+;是否生成日志，1生成，0不生成
+LogFlag=0

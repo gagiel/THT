@@ -1,0 +1,1 @@
+alter table `t_plan` add column `info_add` text;

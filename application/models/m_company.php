@@ -1,0 +1,188 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 14-12-10
+ * Time: 下午2:04
+ */
+
+/*
+ * 联系人模块
+ * 企业管理
+ * 连接表名：company
+ */
+
+class M_company extends CI_Model
+{
+	var $table_name = 't_company';
+	
+    public function __construct()
+    {
+        $this->load->database();
+        $this->load->helper('url');
+    }
+    
+    /**
+     * 获取企业列表
+     */
+	function company_list($where,$start='0',$pageSize='0')
+    {
+    	$this->db->select('*');
+    	
+		if(isset($where['code']) && $where['code']!='')
+		{
+			$this->db->like('name',$where['code'],'after');
+            $this->db->where(array('del'=>0));
+		}
+		
+		$this->db->order_by('id','desc');
+		
+		if($pageSize>0)
+		{
+			$this->db->limit($pageSize,$start);
+		}
+		
+		$re = $this->db->get($this->table_name);
+		
+		return $re->result();
+    }
+    /*
+     * 获取推荐企业logo列表
+     */
+    public function  companyLogo_list(){
+        $this->db->select('id,name,logo');
+        $this->db->order_by('id','desc');
+         $this->db->where('recommend',1);
+        $re=$this->db->get($this->table_name);
+        return $re->result();
+    }
+    
+    public function join_num($id)
+    {
+        $this->db->select('t_company.*,t_company_type.name tname');
+        $this->db->from('t_company'); //主表
+        $this->db->join('t_company_type', 't_company_type.id =t_company.ctype', 'left outer');
+		
+        if ($id) {
+            $query = $this->db->where('t_company.id', $id)->where('del', 0)->get();
+        } else {
+            $query = $this->db->where('del', 0)->get();
+        }
+        
+        return $query->num_rows;
+    }
+    /*
+     * 将领域，分类，企业组成一个表
+     * @param int id：在联表中 主表id
+     */
+    public function join_arr($id,$start='0',$pageSize='0')
+    {
+        $this->db->select('t_company.*,t_company_type.name tname');
+        $this->db->from('t_company'); //主表
+        $this->db->join('t_company_type', 't_company_type.id =t_company.ctype', 'left outer');
+
+		if($pageSize>0)
+		{
+			$this->db->limit($pageSize,$start);
+		}
+		
+        if ($id) {
+            $query = $this->db->where('t_company.id', $id)->where('del', 0)->get();
+        } else {
+            $query = $this->db->where('del', 0)->get();
+        }
+
+
+        return $query->result_array();
+    }
+
+    //搜索条件：通过id
+    //$tname :表名
+    public function get_field($id = FALSE, $tname, $where = FALSE)
+    {
+        if ($where) {
+            $query = $this->db->get_where('t_company', $where);
+            return $query->result_array();
+        }
+        if ($id === FALSE) {
+            $query = $this->db->get($tname);
+            return $query->result_array();
+        }
+
+        $query = $this->db->get_where($tname, array('id' => $id));
+        return $query->row_array();
+    }
+
+    /*
+     * 删除
+     * @param string $id 操作项id
+     */
+    public function del_field($id)
+    {
+        return $this->db->delete('t_company', array('id' => $id));
+    }
+
+    /*
+     * 停用和启用
+     * @param string $id 操作项id
+     * @param array $data 停用与启用项del
+     */
+
+
+    public function stop_field($id, $data)
+    {
+        return $this->db->where('id', $id)->update('t_company', $data);
+    }
+
+    /*
+     * 增加企业
+     * @param string logo 的上传路径（暂时是绝对路径）
+     * @param string 产品图片的上传路径（暂时是绝对路径）
+     */
+    public function add_field($logo, $pic)
+    {
+        //去重并去空值
+        $adrArr = array_filter(array_unique($_POST['address']));
+        $address = implode(',', $adrArr);
+
+        $data = array(
+            'name' => $this->input->post('name'),
+            'ctype' => $this->input->post('ctype'),
+//            'cfield' => $this->input->post('cfield'),
+            'brief' => $this->input->post('brief'),
+            'address' => $address,
+            'affairs' => $this->input->post('affairs'),
+            'way' => $this->input->post('way'),
+            'logo' => $logo,
+            'pic' => $pic,
+            'del' => 0
+        );
+
+        return $this->db->insert('t_company', $data);
+    }
+
+    /*
+     * 处理编辑
+     * @param string logo 的上传路径（暂时是绝对路径）
+     * @param string 产品图片的上传路径（暂时是绝对路径）
+     */
+    public function edit_field($logo, $pic, $id)
+    {
+        //去重并去空值
+        $adrArr = array_filter(array_unique($_POST['address']));
+        $address = implode(',', $adrArr);
+
+        $data = array(
+            'name' => $this->input->post('name'),
+            'ctype' => $this->input->post('ctype'),
+//            'cfield' => $this->input->post('cfield'),
+            'brief' => $this->input->post('brief'),
+            'address' => $address,
+            'affairs' => $this->input->post('affairs'),
+            'way' => $this->input->post('way'),
+            'logo' => $logo,
+            'pic' => $pic
+        );
+        return $this->db->where('id', $id)->update('t_company', $data);
+    }
+}

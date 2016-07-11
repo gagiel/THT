@@ -1,0 +1,1 @@
+insert into t_jurisdict (name,parent,detail)values('工作方案','0','30')

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="30" ID="13" Name="ZGYSPTHZ_97_2"
+	ImagePath="44JDMZJ\HZ\ZGYSPTHZ_97\ZGYSPTHZ_97_2\001001.jpg" OutputID="259">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="2928" Top="6344" Right="6396" Bottom="7620">
+				<RefAnchorList Size="2">
+					<RefAnchor ID="1" RefAnchorID="1" DistToAnchor="-3065"
+						LocationType="2" />
+					<RefAnchor ID="2" RefAnchorID="1" DistToAnchor="-1779"
+						LocationType="4" />
+				</RefAnchorList>
+			</Region>
+			<LineLocation MinNum="1" MaxNum="4" MinLength="2145"
+				MaxLength="4696" MinHeight="270" MaxHeight="580" MinSpace="77"
+				MaxSpace="1470" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="12" Top="0" Right="66"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="6" MaxNum="20" MinWidth="175"
+				MaxWidth="364" MinHeight="251" MaxHeight="502" MinSpace="13"
+				MaxSpace="175" MinWHRatio="57" MaxWHRatio="131" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="105" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1642683137"
+					CompareType="0" Charset="" Text="公安部出入境管理局" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="3157" Top="6721" Right="6383" Bottom="7224">
+						<RefAnchorList Size="2">
+							<RefAnchor ID="1" RefAnchorID="1" DistToAnchor="-2669"
+								LocationType="2" />
+							<RefAnchor ID="2" RefAnchorID="1" DistToAnchor="-2156"
+								LocationType="4" />
+						</RefAnchorList>
+					</Region>
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+	<AnchorList Size="1">
+		<Anchor ID="1" InheritedID="1" Type="2" RefType="4" PosX="4757"
+			PosY="9381" Min="-1" Max="-1" Threshold="750" IsValid="0" />
+	</AnchorList>
+</SubTemplate>

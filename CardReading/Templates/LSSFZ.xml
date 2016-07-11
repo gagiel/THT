@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="55" ID="4" Name="LSSFZ"
+	ImagePath="FJDMZJ\EDZHML\LSSFZ\008095.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="158" Top="6105" Right="3336" Bottom="9582" />
+			<LineLocation MinNum="3" MaxNum="5" MinLength="1151"
+				MaxLength="3316" MinHeight="370" MaxHeight="741" MinSpace="154"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="2" MaxNum="20" MinWidth="158"
+				MaxWidth="357" MinHeight="216" MaxHeight="556" MinSpace="19"
+				MaxSpace="436" MinWHRatio="61" MaxWHRatio="135" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="107" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="2" IsExist="7209071"
+					CompareType="0" Charset="" Text="有效期限" CharNum="0" ForegroundColor="0"
+					BackgroundColor="0">
+					<Region Left="456" Top="6584" Right="3316" Bottom="7233" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="1" IsExist="6619244"
+					CompareType="0" Charset="" Text="签发机关" CharNum="0" ForegroundColor="0"
+					BackgroundColor="0">
+					<Region Left="427" Top="7310" Right="3316" Bottom="7990" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

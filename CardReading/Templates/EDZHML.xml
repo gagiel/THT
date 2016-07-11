@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="53" ID="" Name="EDZHML" ImagePath="FJDMZJ\096001.jpg"
+	OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="1736" Top="7190" Right="10000" Bottom="10000" />
+			<LineLocation MinNum="1" MaxNum="4" MinLength="2168"
+				MaxLength="8333" MinHeight="200" MaxHeight="825" MinSpace="476"
+				MaxSpace="1492" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="16" Top="0" Right="87"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="8" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="15" MaxNum="35" MinWidth="40"
+				MaxWidth="321" MinHeight="300" MaxHeight="825" MinSpace="15"
+				MaxSpace="742" MinWHRatio="31" MaxWHRatio="88" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="3">
+						<CharRatio CharType="2" WHRatio="71" Charset="" />
+						<CharRatio CharType="10" WHRatio="25" Charset="1" />
+						<CharRatio CharType="10" WHRatio="64" Charset="X" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="2" Offset="0" IsExist="2004"
+					CompareType="0" Charset="" Text="\D{17}[X\D]" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="3353" Top="8079" Right="8975" Bottom="8777" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

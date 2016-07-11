@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="18" ID="" Name="TaiwanWLDLTXZ"
+	ImagePath="44JDMZJ\TWWLDLTXZ\046006.jpg" OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="152428612"
+					CompareType="0" Charset="" Text="T&lt;CHN[\U&lt;]{37}[&lt;A][\U&lt;]"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="467" Top="8197" Right="9704" Bottom="8619" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="152431492"
+					CompareType="0" Charset=""
+					Text="\D{8}&lt;\DCHN\D{7}[MF]\D{7}[12][90]20[\D\U]{4}\D{2}&lt;{4}\D{2}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="412" Top="8932" Right="9676" Bottom="9392">
+						<AnchorList Size="1">
+							<Anchor ID="1" InheritedID="-1" Type="2" RefType="4" PosX="5037"
+								PosY="9382" Min="-1" Max="-1" Threshold="750" IsValid="0" />
+						</AnchorList>
+					</Region>
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

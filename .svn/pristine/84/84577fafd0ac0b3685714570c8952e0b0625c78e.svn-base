@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="99" ID="" Name="ZHRMGHGQZ_36JDM"
+	ImagePath="36JDMZJ\ZHRMGHGQZ_36\001002.jpg" OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="-842150451"
+					CompareType="0" Charset="" Text="V[\U&lt;]CHN[\U&lt;]{31}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1634" Top="7362" Right="9066" Bottom="7931" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="-842150451"
+					CompareType="0" Charset=""
+					Text="[\U\D&lt;]{10}\U{3}\D{7}[FM]\D{7}[\D\U&lt;]{8}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1655" Top="8088" Right="9066" Bottom="8686" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

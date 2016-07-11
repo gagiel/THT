@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="28" ID="" Name="ZGYSPTHZ_97"
+	ImagePath="44JDMZJ\HZ\ZGYSPTHZ_97\001001.jpg" OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="5701724"
+					CompareType="0" Charset="" Text="POCHN[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="364" Top="8104" Right="9318" Bottom="8510" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6946927"
+					CompareType="0" Charset=""
+					Text="G\D{9}CHN\D{7}[MF]\D{11}[\U\D]{4}&lt;{6}\D{2}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="364" Top="8800" Right="9318" Bottom="9245">
+						<AnchorList Size="1">
+							<Anchor ID="1" InheritedID="-1" Type="2" RefType="4" PosX="4831"
+								PosY="9235" Min="-1" Max="-1" Threshold="750" IsValid="0" />
+						</AnchorList>
+					</Region>
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

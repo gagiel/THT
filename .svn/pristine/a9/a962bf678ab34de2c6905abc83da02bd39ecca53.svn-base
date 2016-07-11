@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="119" ID="22" Name="XBGATXZ"
+	ImagePath="FJDMZJ\XBGATXZ\2014612154849.jpg" OutputID="1">
+	<FilterInfoList Size="2">
+		<FilterInfo RefFilter="6" Type="4">
+			<Region Left="1540" Top="0" Right="7080" Bottom="1872" />
+			<LineLocation MinNum="1" MaxNum="3" MinLength="2000"
+				MaxLength="5820" MinHeight="343" MaxHeight="1310" MinSpace="156"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-10"
+				BottomPlus="20">
+				<LineLocationRange Left="0" Top="9" Right="98"
+					Bottom="90" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="4" MaxNum="20" MinWidth="390"
+				MaxWidth="560" MinHeight="600" MaxHeight="800" MinSpace="100"
+				MaxSpace="400" MinWHRatio="25" MaxWHRatio="150" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="90" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="2004"
+					CompareType="0" Charset="" Text="往来港澳通行证" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1780" Top="249" Right="6360" Bottom="1466" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="2970" Top="6349" Right="7680" Bottom="8439" />
+			<LineLocation MinNum="1" MaxNum="3" MinLength="3120"
+				MaxLength="4880" MinHeight="468" MaxHeight="842" MinSpace="218"
+				MaxSpace="780" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="65535" MinNum="5" MaxNum="15"
+				MinWidth="220" MaxWidth="480" MinHeight="374" MaxHeight="811"
+				MinSpace="20" MaxSpace="300" MinWHRatio="25" MaxWHRatio="150"
+				IsRemoveLine="0" LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="84" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="2004"
+					CompareType="0" Charset="" Text="公安部出入境管理局" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="3500" Top="7113" Right="7670" Bottom="7862" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

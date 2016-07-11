@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="1041" ID="1030" Name="QMJKBXK"
+	ImagePath="FJDMZJ\QMJKBXK\00001.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="2479" Top="79" Right="9008" Bottom="2857" />
+			<LineLocation MinNum="1" MaxNum="2" MinLength="3502"
+				MaxLength="6477" MinHeight="592" MaxHeight="1015" MinSpace="30"
+				MaxSpace="730" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="65535" MinNum="2" MaxNum="20"
+				MinWidth="263" MaxWidth="910" MinHeight="412" MaxHeight="984"
+				MinSpace="202" MaxSpace="627" MinWHRatio="10" MaxWHRatio="150"
+				IsRemoveLine="0" LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="0" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="5" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="2"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="110" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="2004"
+					CompareType="0" Charset="" Text="全民健康保險" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="2670" Top="499" Right="7540" Bottom="1482" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

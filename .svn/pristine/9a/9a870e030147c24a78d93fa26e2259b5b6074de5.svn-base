@@ -1,0 +1,426 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>IDCard.OCX Sample---JavaScript</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<SCRIPT LANGUAGE="JavaScript">
+
+//加载核心
+function LoadRecogKenal()
+{
+    document.IDScanRecog.result.innerText = "";
+    if(!objIDCard.IsLoaded())
+    {
+       var strDllPath = "";
+       var nRet = objIDCard.InitIDCard(document.IDScanRecog.UserID.value,1);
+
+       document.IDScanRecog.result.innerText = "";
+       if(nRet==0)
+       { 
+          document.IDScanRecog.result.innerText = "识别核心加载成功";
+       }
+       else
+       {
+         document.IDScanRecog.result.innerText = "识别核心加载失败\r\n返回值：";
+      
+         document.IDScanRecog.result.innerText += nRet;
+         if(nRet==1)
+         {
+            document.IDScanRecog.result.innerText += "(无效的UserID)";
+         }
+       }
+    }
+    else
+    {
+          document.IDScanRecog.result.innerText = "核心已经加载";
+    }
+ 
+}
+//释放核心
+function FreeRecogKenal()
+{
+    objIDCard.FreeIdcard();
+    document.IDScanRecog.result.innerText = "";
+}
+//识别
+function RecognizeImg()
+{
+    if(objIDCard.IsLoaded())
+    {
+        //采集图像
+        var nResult = objIDCard.AcquireImage(document.IDScanRecog.ImgSizeType.value);
+        if(nResult!=0)
+        {
+           var strError = "采集图像失败\r\n返回值：";
+           strError += nResult;
+           document.IDScanRecog.result.innerText = strError;
+           return;
+        }
+        //调用识别接口识别
+        
+        //设置要识别的证件类型
+        //0表示添加次主类型的所有子模板
+        if (document.IDScanRecog.CardMainID.value==1010)
+        {
+			objIDCard.ProcessImage(2);		
+			nResult = objIDCard.RecogBusinessCard(1);
+			if(nResult!=0)
+			{
+				//alert("识别失败");
+				var strError = "识别失败\r\n返回值：";
+				strError += nResult;
+				document.IDScanRecog.result.innerText = strError;
+				return;
+        	} 
+		
+		}
+		else
+		{
+     	  	objIDCard.SetIDCardType(document.IDScanRecog.CardMainID.value,0);
+       
+      	 	//识别
+			objIDCard.ProcessImage(2);
+      	 	nResult = objIDCard.RecogIDCard(); 
+			if(nResult<=0)
+	        {
+	           //alert("识别失败");
+	           var strError = "识别失败\r\n返回值：";
+	           strError += nResult;
+	           document.IDScanRecog.result.innerText = strError;
+	           return;
+	        } 
+		}
+        //显示识别结果
+        
+        DisplayResult();
+        //保存图像
+        objIDCard.SaveImage(document.IDScanRecog.ImgPath.value);
+        //保存头像
+        objIDCard.SaveHeadImage(document.IDScanRecog.HeadPath.value);
+    }
+    else
+    {
+        document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+    }
+   
+}
+
+//显示识别结果
+function DisplayResult()
+{
+	document.IDScanRecog.result.innerText = "";   
+	var strResult = "识别成功\r\n";   
+	if (document.IDScanRecog.CardMainID.value==1010)
+	{		          
+		for(var i=0;i<10;++i)
+		{
+			var nCount = objIDCard.GetBusinessCardResultCount(i);
+			
+			if (nCount==0)
+			{
+				strResult += objIDCard.GetBusinessCardFieldName(i);					
+				strResult +=":";
+					strResult +="";
+				strResult  += "\r\n";
+			}
+			for (var j=0;j<nCount;j++)
+			{
+				strResult += objIDCard.GetBusinessCardFieldName(i);
+				strResult+=":";
+				strResult +=objIDCard.GetBusinessCardResult(i,j);
+					strResult += "\r\n";
+			}	
+		}
+	}
+	else
+	{	
+   		var nFieldNum = objIDCard.GetRecogFieldNum();
+    
+    	if(nFieldNum>0)
+   		{  
+			for(var i=1;i<=nFieldNum;++i) 
+       		{
+				strResult += objIDCard.GetFieldName(i);
+				strResult += ":";
+				strResult += objIDCard.GetRecogResult(i);
+				//alert(objIDCard.GetRecogResult(i));
+				strResult += "\r\n";
+       		}
+   	 	}
+	}
+    document.IDScanRecog.result.innerText = strResult; 
+}
+//获取当前SDK的版本信息
+function GetSDKVersion()
+{
+	if(objIDCard.IsLoaded())
+	{
+		document.IDScanRecog.result.innerText = objIDCard.GetVersionInfo(); 
+	}
+	else
+	{
+		document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+	}
+}
+//判断设备是否在线
+function DeviceIsOnLine()
+{
+	if(objIDCard.IsLoaded())
+	{
+		if(objIDCard.CheckDeviceOnline()==1)
+		{
+			document.IDScanRecog.result.innerText = "在线";
+		}
+		else
+		{
+			document.IDScanRecog.result.innerText = "离线";
+		}
+	}
+	else
+	{
+		document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+	}
+}
+//获取设备名称
+function GetDeviceName()
+{
+	if(objIDCard.IsLoaded())
+	{
+		document.IDScanRecog.result.innerText = objIDCard.GetCurrentDevice();
+	}
+	else
+	{
+		document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+	}
+}
+//获取设备按钮状态
+function GetDeviceBtnStatus()
+{
+	if(objIDCard.IsLoaded())
+	{
+        var nBtnStatus = objIDCard.GetButtonDownType();
+        if(nBtnStatus==0)
+        {
+        	document.IDScanRecog.result.innerText = "无";
+        }
+        else if(nBtnStatus==1)
+        {
+        	document.IDScanRecog.result.innerText = "左键";
+        }
+        else if(nBtnStatus==2)
+        {
+        	document.IDScanRecog.result.innerText = "右键";
+        }
+	}
+	else
+	{
+		document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+	}
+}
+//设置采集属性
+function SetCollecttionPropety()
+{
+    if(objIDCard.IsLoaded())
+    {
+        var nLightType = 1;//设置采集的是可见光图像
+        var nImgType = 1;   //设置采集的是彩色图像
+        var nResult = objIDCard.SetAcquireImageType(nLightType,nImgType);
+        if(nResult)
+        {
+            document.IDScanRecog.result.innerText = "采集设置成功";
+        }
+        else
+        {
+            document.IDScanRecog.result.innerText = "采集设置失败";
+        }
+    }
+    else
+    {
+       document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+    }
+}
+
+//设置图像大小
+function SetImageSize()
+{
+    if(objIDCard.IsLoaded())
+    {
+        var nWidth = 2550; 
+        var nHeight = 3700;
+        var nResult = objIDCard.SetUserDefinedImageSize(nWidth,nHeight);
+        if(nResult)
+        {
+            document.IDScanRecog.result.innerText = "采集设置成功";
+            //扫描看下效果
+            objIDCard.AcquireImage(20);     //保存图像
+            objIDCard.SaveImage(document.IDScanRecog.ImgPath.value);
+        }
+        else
+        {
+            document.IDScanRecog.result.innerText = "采集设置失败";
+        }
+    }
+    else
+    {
+       document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+    }
+}
+//设置扫描的分辨率
+function SetScanResolution()
+{
+    if(objIDCard.IsLoaded())
+    {
+        var nResolutionX = 300; 
+        var nResolutionY = 300;
+        var nResult = objIDCard.SetAcquireImageResolution(nResolutionX,nResolutionY);
+        if(nResult)
+        {
+            document.IDScanRecog.result.innerText = "采集设置成功";
+            //扫描看下效果
+            objIDCard.AcquireImage(2);     //保存图像
+            objIDCard.SaveImage(document.IDScanRecog.ImgPath.value);
+        }
+        else
+        {
+            document.IDScanRecog.result.innerText = "采集设置失败";
+        }
+    }
+    else
+    {
+       document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+    }
+}
+
+function AutoPhotoAndRecog()
+{
+   if(objIDCard.IsLoaded())
+    {
+ 	var nRet=objIDCard.GetGrabSignalType();
+	if(nRet==1)
+	{
+	    var nResult = objIDCard.AcquireImage(21);
+            if(nResult!=0)
+           {
+               var strError = "采集图像失败\r\n返回值：";
+               strError += nResult;
+               document.IDScanRecog.result.innerText = strError;
+               return;
+           }
+          //调用识别接口识别
+          objIDCard.ProcessImage(2);
+          //设置要识别的证件类型
+          //0表示添加次主类型的所有子模板
+          objIDCard.SetIDCardType(13,0);
+          objIDCard.AddIDCardType(9,0);
+          objIDCard.AddIDCardType(12,0);
+          objIDCard.AddIDCardType(2,0);
+          objIDCard.AddIDCardType(5,0);
+          //识别
+          nResult = objIDCard.RecogIDCard(); 
+          if(nResult<=0)
+          {
+              //alert("识别失败");
+              var strError = "识别失败\r\n返回值：";
+              strError += nResult;
+              document.IDScanRecog.result.innerText = strError;
+              return;
+          }  
+           //显示识别结果
+        
+          DisplayResult();
+          //保存图像
+          
+          //***图像名称***
+          objIDCard.SaveImage(document.IDScanRecog.ImgPath.value);
+          parent.setpic("/uploads/contact/"+imgName);
+          
+          //保存头像
+          objIDCard.SaveHeadImage(document.IDScanRecog.HeadPath.value);
+       }
+    } 
+    else
+    {
+        document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+    }
+}
+function GetDeviceSNCode()
+{
+    if(objIDCard.IsLoaded())
+    {
+        
+        var nResult = objIDCard.GetDeviceSN();
+       
+       document.IDScanRecog.result.innerText = nResult ;
+ 
+        
+    }
+    else
+    {
+       document.IDScanRecog.result.innerText = "识别核心未加载，请先成功加载识别核心";
+    }
+}
+setInterval("AutoPhotoAndRecog()", 100);
+RecognizeImg();
+
+//***图像名称***
+var imgName = new Date().getTime()+".jpg";
+var imgPath = "/home/work/thtsystem/uploads/contact/"+imgName;
+alert(ingPath);
+document.getElementById("ImgPath").value = imgPath;
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY>
+
+	<OBJECT classid="clsid:10EC554B-357B-4188-9E5E-AC5039454D8B"
+		id="objIDCard" width="0" height="0"></OBJECT>
+
+	<FORM NAME="IDScanRecog">
+		用户ID：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<INPUT type="text" name="UserID" value="59296625390562138974"			size="20">
+		<INPUT type="button" name="BtnLoadKenal" value="加载识别核心" size="20"			onClick=LoadRecogKenal()>
+		<INPUT type="button" name="BtnFreeKenal" value="释放识别核心" size="20"			onClick=FreeRecogKenal()>
+		<br />
+		证件类型:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<INPUT type="text" name="CardMainID" value="1010" size="20">
+		<br />
+		图像尺寸类型：
+		<INPUT type="text" name="ImgSizeType" value="13" size="20">
+		<br />
+		设置图像保存路径：&nbsp;&nbsp;
+		<INPUT type="text" name="ImgPath"
+			value="/home/work/thtsystem/uploads/contact/test.jpg" size="50">
+		<br />
+		设置头像保存路径：&nbsp;&nbsp;
+		<INPUT type="text" name="HeadPath"
+			value="/home/work/thtsystem/uploads/contact/test_head.jpg" size="50">
+		<br />
+		<INPUT type="button" name="BtnRecog" value="证件识别"
+			onClick=RecognizeImg()>
+		<INPUT type="button" name="BtnVersion" value="获取SDK版本"
+			onClick=GetSDKVersion()>
+		<INPUT type="button" name="BtnOnLine" value="设备是否在线"
+			onClick=DeviceIsOnLine()>
+		<INPUT type="button" name="BtnDeviceName" value="获取设备名称"
+			onClick=GetDeviceName()>
+		<br />
+		<INPUT type="button" name="BtnButtonStatus" value="设备按钮状态"
+			onClick=GetDeviceBtnStatus()>
+		<INPUT type="button" name="BtnCollectionProperty" value="设置采集属性"
+			onClick=SetCollecttionPropety()>
+		<INPUT type="button" name="BtnResolution" value="设备分辨率"
+			onClick=SetImageSize()>
+		<br />
+		<INPUT type="button" name="BtnSize" value="设备图像大小"
+			onClick=SetScanResolution()>
+		<INPUT type="button" name="BtnSN" value="获取设备序列号"
+			onClick=GetDeviceSNCode()>
+		<br />
+		<textarea name="result" cols="75" rows="25"></textarea>
+	</FORM>
+</BODY>
+</HTML>

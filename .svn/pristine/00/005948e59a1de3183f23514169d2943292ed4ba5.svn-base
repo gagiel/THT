@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="50" ID="13" Name="Libanaise"
+	ImagePath="44JDMZJ\HZ\LIBANEN\001001.jpg" OutputID="562">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="151893740"
+					CompareType="0" Charset="" Text="P[\U&lt;]LBN[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="317" Top="8114" Right="9318" Bottom="8539" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="151896620"
+					CompareType="0" Charset=""
+					Text="\D{7}&lt;&lt;\DLBN\D{7}[MF]\D{7}\D{6}&lt;{8}\D{2}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="310" Top="8829" Right="9325" Bottom="9284" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

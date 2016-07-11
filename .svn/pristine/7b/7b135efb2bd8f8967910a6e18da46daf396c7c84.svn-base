@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="23" ID="9" Name="DLWLGangAoTXZ"
+	ImagePath="44JDMZJ\DLWLGATXZ\001001.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="151233140"
+					CompareType="0" Charset="" Text="W&lt;CHN[\U&lt;]{36}\U{3}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="424" Top="8143" Right="9386" Bottom="8578" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="151249844"
+					CompareType="0" Charset="" Text="W\D{9}CHN\D{7}[MF]\D{7}\D{8}&lt;{6}\D{2}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="431" Top="8868" Right="9393" Bottom="9332" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

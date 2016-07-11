@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="88" ID="13" Name="Chile"
+	ImagePath="44JDMZJ\HZ\ZHILI\002004.jpg" OutputID="612">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="P[\U&lt;]CHL[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="276" Top="8162" Right="8954" Bottom="8578" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="[\D&lt;]{10}CHL\D{7}[FM][\D\U&lt;]{23}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="330" Top="8849" Right="8954" Bottom="9303" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

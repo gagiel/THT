@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="159" ID="12" Name="FAGUOQIANZHENG"
+	ImagePath="36JDMZJ\FAGUOQIANZHENG\法国_毕磊IR.jpg" OutputID="43">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="83159312"
+					CompareType="0" Charset="" Text="VCFRA[\U&lt;]{31}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1187" Top="7399" Right="9942" Bottom="7795" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="83206352"
+					CompareType="0" Charset=""
+					Text="\D{10}CHN\D{7}[FM]{1}\D{7}&lt;[\U\D]{1}\D{6}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1197" Top="8064" Right="9942" Bottom="8490" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

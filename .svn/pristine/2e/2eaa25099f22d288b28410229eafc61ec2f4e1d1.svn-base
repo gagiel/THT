@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="157" ID="12" Name="YIDALIQIANZHENG"
+	ImagePath="36JDMZJ\YIDALIQIANZHENG\2014627105353IR.jpg" OutputID="39">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="109826692"
+					CompareType="0" Charset="" Text="VCITA[\U\&lt;]{31}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="57" Top="7409" Right="9942" Bottom="7823" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="109879892"
+					CompareType="0" Charset=""
+					Text="[\U\D]{1}\D{9}CHN\D{7}[MF]{1}\D{7}&lt;{1}\U{1}\D{6}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="57" Top="7976" Right="9942" Bottom="8449" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

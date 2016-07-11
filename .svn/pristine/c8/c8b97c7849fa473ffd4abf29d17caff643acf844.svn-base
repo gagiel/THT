@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="67" ID="" Name="JXSZ"
+	ImagePath="FJDMZJ\JXSZ\JZ\019001.jpg" OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="521" Top="0" Right="9563" Bottom="2541" />
+			<LineLocation MinNum="1" MaxNum="4" MinLength="5028"
+				MaxLength="9213" MinHeight="502" MaxHeight="1173" MinSpace="0"
+				MaxSpace="2122" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="7">
+				<LineLocationRange Left="34" Top="0" Right="81"
+					Bottom="100" />
+				<LineLocationMethodList Size="2">
+					<LineLocationMethod Type="2">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="3" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="65535"
+				MaxPointWidth="100" MaxPointHeight="100" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="9" MaxNum="30" MinWidth="264"
+				MaxWidth="625" MinHeight="387" MaxHeight="829" MinSpace="18"
+				MaxSpace="189" MinWHRatio="80" MaxWHRatio="130" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="2">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="3" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="100" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="0" Offset="0" IsExist="-842150451"
+					CompareType="0" Charset="" Text="中华人民共和国机动车驾驶证" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1962" Top="656" Right="8284" Bottom="1508" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

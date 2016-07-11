@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="94" ID="12" Name="JJTQLYQZ"
+	ImagePath="36JDMZJ\ZHRMGHGQZ_36\JJTQLYQZ\001002.jpg" OutputID="6">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="-842150451"
+					CompareType="0" Charset="" Text="VECHN[\U&lt;]{31}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1634" Top="7362" Right="9066" Bottom="7931" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="-842150451"
+					CompareType="0" Charset="" Text="[\U\D&lt;]{10}\U{3}\D{7}[FM][\D&lt;]{15}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1648" Top="8078" Right="9059" Bottom="8676" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

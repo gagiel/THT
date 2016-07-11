@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/application/controllers/plan_r.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/controllers/remind_r.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/controllers/templat_bulid.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_annex_copy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_copy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_division_copy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_done_copy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_fankui.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_note.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_plan_ready_copy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_remind_copy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/models/m_send_massage.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/company/add_show.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/company/recommend_show.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/company/update_show.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/contact/index_mass.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan/add_more.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan/area_text.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan/mass_qun_index.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan/mass_qun_show.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan_r/add_more.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan_r/area_text.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan_r/mass_qun_index.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan_r/mass_qun_show.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/views/plan_r/work_tixing.php" charset="UTF-8" />
+  </component>
+</project>

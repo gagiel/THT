@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MainTemplate>
+	<FilterTemplatePath>FilterTemplate.xml</FilterTemplatePath>
+	<SubTemplateListPath>SubTemplateList.xml</SubTemplateListPath>
+	<SubTemplatePath>Templates\</SubTemplatePath>
+	<ImagePath>Images\</ImagePath>
+	<ImageProcessingList Size="1">
+		<ImageProcessing Type="8">
+			<TiltCorrection IsOriginalSize="1" FillColor="1"
+				MinAngle="1" MaxAngle="5" GrayType="0" BinaryType="6" />
+		</ImageProcessing>
+	</ImageProcessingList>
+	<TemplateGroup Index="0" Name="root" ImagePath="" Action="1"
+		AttachedTemplate="-1" ChildNum="3">
+		<FilterConfigList Size="1">
+			<FilterConfig RefFilter="2" FilterThresh="890"
+				FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+		</FilterConfigList>
+		<TemplateGroup Index="1" Name="36JDMZJ" ImagePath="36JDMZJ\"
+			Action="1" AttachedTemplate="1" ChildNum="8">
+			<FilterConfigList Size="1">
+				<FilterConfig RefFilter="2" FilterThresh="750"
+					FilterWeight="10" FeatureMode="1" InheritedFilter="2" />
+			</FilterConfigList>
+			<TemplateGroup Index="2" Name="ZHRMGHGQZ_36JDM"
+				ImagePath="36JDMZJ\ZHRMGHGQZ_36\" Action="1" AttachedTemplate="99"
+				ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="2" FilterThresh="750"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="103" Name="JJTQLYQZ"
+					ImagePath="36JDMZJ\ZHRMGHGQZ_36\JJTQLYQZ\" Action="1"
+					AttachedTemplate="94" ChildNum="0" />
+				<TemplateGroup Index="104" Name="36JDMQZ"
+					ImagePath="36JDMZJ\ZHRMGHGQZ_36\ZHRMGHGQZ\" Action="1"
+					AttachedTemplate="100" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="3" FilterThresh="550"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="137" Name="ZHRMGHGQZ"
+						ImagePath="36JDMZJ\ZHRMGHGQZ_36\ZHRMGHGQZ\" Action="0"
+						AttachedTemplate="100" ChildNum="0" />
+					<TemplateGroup Index="138" Name="DLYGWLGATXZ"
+						ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="1" AttachedTemplate="21"
+						ChildNum="0" />
+				</TemplateGroup>
+			</TemplateGroup>
+			<TemplateGroup Index="8" Name="TaiwanQZ" ImagePath="36JDMZJ\TWQZ\"
+				Action="1" AttachedTemplate="8" ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="500"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="101" Name="TaiwanJMJLQZ"
+					ImagePath="36JDMZJ\TWQZ\TWJMJLQZ\" Action="1" AttachedTemplate="9"
+					ChildNum="0" />
+				<TemplateGroup Index="102" Name="TaiwanJMWLDLQZ"
+					ImagePath="36JDMZJ\TWQZ\TWJMWLDLQZ\" Action="1" AttachedTemplate="11"
+					ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="13" Name="WGRJLXK" ImagePath="36JDMZJ\WGRJLXK\"
+				Action="1" AttachedTemplate="13" ChildNum="0" />
+			<TemplateGroup Index="135" Name="DLYGWLGATXZ"
+				ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="0" AttachedTemplate="21"
+				ChildNum="1">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="550"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="136" Name="DLYGWLGATXZ"
+					ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="1" AttachedTemplate="21"
+					ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="164" Name="YIDALIQIANZHENG"
+				ImagePath="36JDMZJ\YIDALIQIANZHENG\" Action="1" AttachedTemplate="157"
+				ChildNum="0" />
+			<TemplateGroup Index="165" Name="DEGUOQIANZHENG"
+				ImagePath="36JDMZJ\DEGUOQIANZHENG\" Action="1" AttachedTemplate="158"
+				ChildNum="0" />
+			<TemplateGroup Index="166" Name="FAGUOQIANZHENG"
+				ImagePath="36JDMZJ\FAGUOQIANZHENG\" Action="1" AttachedTemplate="159"
+				ChildNum="0" />
+			<TemplateGroup Index="167" Name="36TongYongQianZheng"
+				ImagePath="36JDMZJ\36TongYongQianZheng\" Action="1"
+				AttachedTemplate="160" ChildNum="0" />
+		</TemplateGroup>
+		<TemplateGroup Index="15" Name="44JDMZJ" ImagePath="44JDMZJ\"
+			Action="1" AttachedTemplate="15" ChildNum="10">
+			<FilterConfigList Size="1">
+				<FilterConfig RefFilter="2" FilterThresh="930"
+					FilterWeight="10" FeatureMode="1" InheritedFilter="2" />
+			</FilterConfigList>
+			<TemplateGroup Index="16" Name="ZHRMGHGQZ_44JDM"
+				ImagePath="44JDMZJ\ZHRMGHGQZ_44\" Action="1" AttachedTemplate="16"
+				ChildNum="0" />
+			<TemplateGroup Index="18" Name="TaiwanWLDLTXZ"
+				ImagePath="44JDMZJ\TWWLDLTXZ\" Action="1" AttachedTemplate="18"
+				ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="750"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="19" Name="TBZ_05"
+					ImagePath="44JDMZJ\TWWLDLTXZ\TBZ_05\" Action="0" AttachedTemplate="19"
+					ChildNum="0" />
+				<TemplateGroup Index="20" Name="TBZ_09"
+					ImagePath="44JDMZJ\TWWLDLTXZ\TBZ_09\" Action="1" AttachedTemplate="20"
+					ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="21" Name="DLYGWLGangAoTXZ"
+				ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="1" AttachedTemplate="21"
+				ChildNum="0" />
+			<TemplateGroup Index="22" Name="DLWLTaiwanTXZ"
+				ImagePath="44JDMZJ\DLWLTWTXZ\" Action="1" AttachedTemplate="22"
+				ChildNum="0" />
+			<TemplateGroup Index="23" Name="DLWLGangAoTXZ"
+				ImagePath="44JDMZJ\DLWLGATXZ\" Action="1" AttachedTemplate="23"
+				ChildNum="0" />
+			<TemplateGroup Index="24" Name="PASSPORT" ImagePath="44JDMZJ\HZ\"
+				Action="1" AttachedTemplate="24" ChildNum="22">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="2" FilterThresh="965"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="25" Name="ZGGWHZ" ImagePath="44JDMZJ\HZ\ZGGWHZ\"
+					Action="1" AttachedTemplate="25" ChildNum="0" />
+				<TemplateGroup Index="26" Name="ZGGWPTDZHZ_2011(PPPE)"
+					ImagePath="44JDMZJ\HZ\ZGGWPTDZHZ_2011(PPPE)\" Action="1"
+					AttachedTemplate="26" ChildNum="0" />
+				<TemplateGroup Index="27" Name="ZGGWDZHZ_2011(PSSE)"
+					ImagePath="44JDMZJ\HZ\ZGGWDZHZ_2011\" Action="1" AttachedTemplate="27"
+					ChildNum="0" />
+				<TemplateGroup Index="28" Name="ZGYSPTHZ_97"
+					ImagePath="44JDMZJ\HZ\ZGYSPTHZ_97\" Action="1" AttachedTemplate="28"
+					ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="3" FilterThresh="399"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="29" Name="ZGYSPTHZ_97_1"
+						ImagePath="44JDMZJ\HZ\ZGYSPTHZ_97\ZGYSPTHZ_97_1\" Action="1"
+						AttachedTemplate="29" ChildNum="0" />
+					<TemplateGroup Index="30" Name="ZGYSPTHZ_97_2"
+						ImagePath="44JDMZJ\HZ\ZGYSPTHZ_97\ZGYSPTHZ_97_2\" Action="0"
+						AttachedTemplate="30" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="31" Name="ZGYSPTDZHZ_2012"
+					ImagePath="44JDMZJ\HZ\ZGYSPTHZ_2012\" Action="1" AttachedTemplate="31"
+					ChildNum="0" />
+				<TemplateGroup Index="32" Name="Indonesia" ImagePath="44JDMZJ\HZ\YINNI\"
+					Action="1" AttachedTemplate="32" ChildNum="0" />
+				<TemplateGroup Index="34" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+					Action="0" AttachedTemplate="34" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="3" FilterThresh="190"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="153" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+						Action="1" AttachedTemplate="34" ChildNum="2">
+						<FilterConfigList Size="1">
+							<FilterConfig RefFilter="6" FilterThresh="980"
+								FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+						</FilterConfigList>
+						<TemplateGroup Index="197" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+							Action="0" AttachedTemplate="34" ChildNum="0" />
+						<TemplateGroup Index="198" Name="TWN" ImagePath="44JDMZJ\HZ\TWN\"
+							Action="1" AttachedTemplate="1042" ChildNum="0" />
+					</TemplateGroup>
+					<TemplateGroup Index="162" Name="44Visa_1"
+						ImagePath="44JDMZJ\HZ\GJHZ\44Visa_1\" Action="1" AttachedTemplate="1034"
+						ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="35" Name="Mexicanos" ImagePath="44JDMZJ\HZ\MOXIGE\"
+					Action="1" AttachedTemplate="35" ChildNum="0" />
+				<TemplateGroup Index="37" Name="Germany" ImagePath="44JDMZJ\HZ\DEGUO\"
+					Action="1" AttachedTemplate="37" ChildNum="0" />
+				<TemplateGroup Index="40" Name="France" ImagePath="44JDMZJ\HZ\FAGUO\"
+					Action="1" AttachedTemplate="40" ChildNum="0" />
+				<TemplateGroup Index="45" Name="Thailand" ImagePath="44JDMZJ\HZ\TAIGUO\"
+					Action="1" AttachedTemplate="45" ChildNum="0" />
+				<TemplateGroup Index="47" Name="Korea" ImagePath="44JDMZJ\HZ\HANGUO\"
+					Action="1" AttachedTemplate="47" ChildNum="0" />
+				<TemplateGroup Index="50" Name="Libanaise" ImagePath="44JDMZJ\HZ\LIBANEN\"
+					Action="1" AttachedTemplate="50" ChildNum="0" />
+				<TemplateGroup Index="92" Name="LXZ" ImagePath="44JDMZJ\HZ\LXZ\"
+					Action="1" AttachedTemplate="85" ChildNum="0" />
+				<TemplateGroup Index="93" Name="Jordan" ImagePath="44JDMZJ\HZ\YUEDAN\"
+					Action="1" AttachedTemplate="86" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="2" FilterThresh="980"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="110" Name="Jordan" ImagePath="44JDMZJ\HZ\YUEDAN\"
+						Action="1" AttachedTemplate="86" ChildNum="0" />
+					<TemplateGroup Index="111" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+						Action="0" AttachedTemplate="34" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="94" Name="Uruguay" ImagePath="44JDMZJ\HZ\WULAGUI\"
+					Action="1" AttachedTemplate="87" ChildNum="0" />
+				<TemplateGroup Index="95" Name="Chile" ImagePath="44JDMZJ\HZ\ZHILI\"
+					Action="1" AttachedTemplate="88" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="2" FilterThresh="980"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="112" Name="Chile" ImagePath="44JDMZJ\HZ\ZHILI\"
+						Action="1" AttachedTemplate="88" ChildNum="0" />
+					<TemplateGroup Index="113" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+						Action="0" AttachedTemplate="34" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="96" Name="Russia" ImagePath="44JDMZJ\HZ\ELUOSI\"
+					Action="1" AttachedTemplate="89" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="2" FilterThresh="980"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="106" Name="Russia" ImagePath="44JDMZJ\HZ\ELUOSI\"
+						Action="1" AttachedTemplate="89" ChildNum="2">
+						<FilterConfigList Size="1">
+							<FilterConfig RefFilter="5" FilterThresh="750"
+								FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+						</FilterConfigList>
+						<TemplateGroup Index="206" Name="Russia" ImagePath="44JDMZJ\HZ\ELUOSI\"
+							Action="0" AttachedTemplate="89" ChildNum="0" />
+						<TemplateGroup Index="207" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+							Action="1" AttachedTemplate="34" ChildNum="0" />
+					</TemplateGroup>
+					<TemplateGroup Index="107" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+						Action="0" AttachedTemplate="34" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="97" Name="Philippines"
+					ImagePath="44JDMZJ\HZ\FEILVBIN\" Action="1" AttachedTemplate="90"
+					ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="2" FilterThresh="980"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="108" Name="Philippines"
+						ImagePath="44JDMZJ\HZ\FEILVBIN\" Action="1" AttachedTemplate="90"
+						ChildNum="0" />
+					<TemplateGroup Index="109" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+						Action="0" AttachedTemplate="34" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="98" Name="Ecuador" ImagePath="44JDMZJ\HZ\EGUADUOER\"
+					Action="1" AttachedTemplate="91" ChildNum="0" />
+				<TemplateGroup Index="99" Name="DemocraticKorea"
+					ImagePath="44JDMZJ\HZ\CHAOXIAN\" Action="1" AttachedTemplate="92"
+					ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="2" FilterThresh="980"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="114" Name="DemocraticKorea"
+						ImagePath="44JDMZJ\HZ\CHAOXIAN\" Action="1" AttachedTemplate="92"
+						ChildNum="0" />
+					<TemplateGroup Index="115" Name="GJHZ" ImagePath="44JDMZJ\HZ\GJHZ\"
+						Action="0" AttachedTemplate="34" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="100" Name="Mongolia" ImagePath="44JDMZJ\HZ\MENGGU\"
+					Action="1" AttachedTemplate="93" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="91" Name="HYZ" ImagePath="44JDMZJ\HYZ\"
+				Action="1" AttachedTemplate="84" ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="980"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="188" Name="44Visa_3"
+					ImagePath="44JDMZJ\HYZ\44Visa_3\" Action="1" AttachedTemplate="1034"
+					ChildNum="0" />
+				<TemplateGroup Index="189" Name="HYZ_1" ImagePath="44JDMZJ\HYZ\HYZ_1\"
+					Action="0" AttachedTemplate="1033" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="133" Name="DLYGWLGATXZ"
+				ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="0" AttachedTemplate="21"
+				ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="100"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="134" Name="DLYGWLGATXZ"
+					ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="1" AttachedTemplate="21"
+					ChildNum="0" />
+				<TemplateGroup Index="163" Name="44Visa_2"
+					ImagePath="44JDMZJ\DLYGWLGATXZ\44Visa_2\" Action="1"
+					AttachedTemplate="148" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="158" Name="44Visa" ImagePath="44JDMZJ\44Visa\"
+				Action="1" AttachedTemplate="142" ChildNum="3">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="950"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="159" Name="HANGUOQIANZHENG"
+					ImagePath="44JDMZJ\HANGUOQIANZHENG\" Action="1" AttachedTemplate="143"
+					ChildNum="0" />
+				<TemplateGroup Index="160" Name="MEIGUOQIANZHENG"
+					ImagePath="44JDMZJ\MEIGUOQIANZHENG\" Action="1" AttachedTemplate="144"
+					ChildNum="0" />
+				<TemplateGroup Index="161" Name="44TongYongQianZheng"
+					ImagePath="44JDMZJ\44Visa\44TongYongQianZheng\" Action="0"
+					AttachedTemplate="145" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="191" Name="XBBMZ" ImagePath="44JDMZJ\XBBMZ\"
+				Action="1" AttachedTemplate="1037" ChildNum="0" />
+		</TemplateGroup>
+		<TemplateGroup Index="52" Name="FJDMZJ" ImagePath="FJDMZJ\"
+			Action="0" AttachedTemplate="52" ChildNum="43">
+			<FilterConfigList Size="1">
+				<FilterConfig RefFilter="3" FilterThresh="490"
+					FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+			</FilterConfigList>
+			<TemplateGroup Index="56" Name="EDZBM" ImagePath="FJDMZJ\EDZBM\"
+				Action="1" AttachedTemplate="56" ChildNum="0" />
+			<TemplateGroup Index="57" Name="GuangDongJZZ"
+				ImagePath="FJDMZJ\GuangdongJZZ\" Action="1" AttachedTemplate="57"
+				ChildNum="0" />
+			<TemplateGroup Index="61" Name="GangAoJMLWNDTXZ"
+				ImagePath="FJDMZJ\GAJMWLNDTXZ\" Action="1" AttachedTemplate="61"
+				ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="4" FilterThresh="590"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="176" Name="GAJMWLNDTXZ"
+					ImagePath="FJDMZJ\GAJMWLNDTXZ\" Action="0" AttachedTemplate="61"
+					ChildNum="0" />
+				<TemplateGroup Index="177" Name="JGZ_B" ImagePath="FJDMZJ\JGZ_B\"
+					Action="1" AttachedTemplate="113" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="63" Name="MacauYJXSFZ" ImagePath="FJDMZJ\MacaoYJXSFZ\"
+				Action="1" AttachedTemplate="65" ChildNum="0" />
+			<TemplateGroup Index="64" Name="HongKongYJXSFZ"
+				ImagePath="FJDMZJ\HongKongYJXSFZ\" Action="1" AttachedTemplate="66"
+				ChildNum="0" />
+			<TemplateGroup Index="65" Name="JXSZ" ImagePath="FJDMZJ\JXSZ\"
+				Action="1" AttachedTemplate="67" ChildNum="3">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="490"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="68" Name="XSZ" ImagePath="FJDMZJ\JXSZ\XSZ\"
+					Action="1" AttachedTemplate="70" ChildNum="4">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="5" FilterThresh="50"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="69" Name="XSZ_2002"
+						ImagePath="FJDMZJ\JXSZ\XSZ\XSZ_2002\" Action="1" AttachedTemplate="77"
+						ChildNum="0" />
+					<TemplateGroup Index="70" Name="XSZ_2005"
+						ImagePath="FJDMZJ\JXSZ\XSZ\XSZ_2005\" Action="1" AttachedTemplate="78"
+						ChildNum="0" />
+					<TemplateGroup Index="71" Name="XSZ_2009"
+						ImagePath="FJDMZJ\JXSZ\XSZ\XSZ_2009\" Action="1" AttachedTemplate="79"
+						ChildNum="0" />
+					<TemplateGroup Index="105" Name="JZ" ImagePath="FJDMZJ\JXSZ\JZ\"
+						Action="1" AttachedTemplate="74" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="72" Name="JZ" ImagePath="FJDMZJ\JXSZ\JZ\"
+					Action="1" AttachedTemplate="74" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="6" FilterThresh="400"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="145" Name="JZ" ImagePath="FJDMZJ\JXSZ\JZ\"
+						Action="0" AttachedTemplate="74" ChildNum="0" />
+					<TemplateGroup Index="146" Name="JZ_1"
+						ImagePath="FJDMZJ\JXSZ\JZ\JZ_1\" Action="1" AttachedTemplate="126"
+						ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="73" Name="JZorXSZ" ImagePath="FJDMZJ\JXSZ\JZorXSZ\"
+					Action="0" AttachedTemplate="75" ChildNum="4">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="5" FilterThresh="50"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="75" Name="XSZ_2002"
+						ImagePath="FJDMZJ\JXSZ\JZorXSZ\XSZ_2002\" Action="1"
+						AttachedTemplate="77" ChildNum="0" />
+					<TemplateGroup Index="76" Name="XSZ_2005"
+						ImagePath="FJDMZJ\JXSZ\XSZ\XSZ_2005\" Action="1" AttachedTemplate="78"
+						ChildNum="0" />
+					<TemplateGroup Index="77" Name="XSZ_2009"
+						ImagePath="FJDMZJ\JXSZ\XSZ\XSZ_2009\" Action="1" AttachedTemplate="79"
+						ChildNum="0" />
+					<TemplateGroup Index="78" Name="JZ" ImagePath="FJDMZJ\JXSZ\JZ\"
+						Action="1" AttachedTemplate="74" ChildNum="0" />
+				</TemplateGroup>
+			</TemplateGroup>
+			<TemplateGroup Index="79" Name="EDZHML" ImagePath="FJDMZJ\EDZHML\"
+				Action="1" AttachedTemplate="53" ChildNum="7">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="380"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="83" Name="DongGuanJZZ"
+					ImagePath="FJDMZJ\EDZHML\DongGuanJZZ\" Action="1" AttachedTemplate="54"
+					ChildNum="0" />
+				<TemplateGroup Index="84" Name="LSSFZ" ImagePath="FJDMZJ\EDZHML\LSSFZ\"
+					Action="1" AttachedTemplate="55" ChildNum="0" />
+				<TemplateGroup Index="85" Name="ShenZhenJZZ"
+					ImagePath="FJDMZJ\EDZHML\ShenZhenJZZ\" Action="1" AttachedTemplate="81"
+					ChildNum="0" />
+				<TemplateGroup Index="86" Name="EDZ" ImagePath="FJDMZJ\EDZHML\EDZ\"
+					Action="0" AttachedTemplate="82" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="4" FilterThresh="590"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="169" Name="EDZ" ImagePath="FJDMZJ\EDZHML\EDZ\"
+						Action="0" AttachedTemplate="82" ChildNum="3">
+						<FilterConfigList Size="1">
+							<FilterConfig RefFilter="3" FilterThresh="120"
+								FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+						</FilterConfigList>
+						<TemplateGroup Index="201" Name="EDZ11"
+							ImagePath="FJDMZJ\EDZHML\EDZ\EDZ11\" Action="1" AttachedTemplate="1045"
+							ChildNum="0" />
+						<TemplateGroup Index="202" Name="TaiWanShenFenZBM1"
+							ImagePath="FJDMZJ\EDZHML\EDZ\TaiWanShenFenZBM1\" Action="1"
+							AttachedTemplate="1044" ChildNum="0" />
+						<TemplateGroup Index="205" Name="TaiWanShenFenZZM1"
+							ImagePath="FJDMZJ\EDZHML\EDZ\TaiWanShenFenZZM1\" Action="1"
+							AttachedTemplate="1043" ChildNum="0" />
+					</TemplateGroup>
+					<TemplateGroup Index="170" Name="JGZ_B" ImagePath="FJDMZJ\JGZ_B\"
+						Action="1" AttachedTemplate="113" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="142" Name="SHBZK" ImagePath="FJDMZJ\EDZHML\SHBZK\"
+					Action="1" AttachedTemplate="125" ChildNum="0" />
+				<TemplateGroup Index="168" Name="JGZ_A" ImagePath="FJDMZJ\JGZ_A\"
+					Action="1" AttachedTemplate="112" ChildNum="0" />
+				<TemplateGroup Index="208" Name="XBGATXZ" ImagePath="FJDMZJ\XBGATXZ\"
+					Action="1" AttachedTemplate="119" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="80" Name="HXZBM" ImagePath="FJDMZJ\HXZBM\"
+				Action="1" AttachedTemplate="59" ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="500"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="81" Name="GangAoJMLWNDTXZBM"
+					ImagePath="FJDMZJ\HXZBM\GAJMWLNDTXZBM\" Action="1"
+					AttachedTemplate="80" ChildNum="0" />
+				<TemplateGroup Index="82" Name="GangAoJMWLNDTXZBM_2013"
+					ImagePath="FJDMZJ\HXZBM\GAJMWLNDTXZBM_2013\" Action="1"
+					AttachedTemplate="60" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="87" Name="GangAoJMWLNDTXZ_2013"
+				ImagePath="FJDMZJ\GAJMWLNDTXZ_2013\" Action="1" AttachedTemplate="63"
+				ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="6" FilterThresh="750"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="139" Name="XBGATXZ" ImagePath="FJDMZJ\XBGATXZ\"
+					Action="1" AttachedTemplate="119" ChildNum="0" />
+				<TemplateGroup Index="140" Name="GAJMWLNDTXZ_2013"
+					ImagePath="FJDMZJ\GAJMWLNDTXZ_2013\" Action="1" AttachedTemplate="63"
+					ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="116" Name="JGZZM" ImagePath="FJDMZJ\JCZ\JGZZM\"
+				Action="1" AttachedTemplate="101" ChildNum="3">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="450"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="171" Name="JGZZM" ImagePath="FJDMZJ\JCZ\JGZZM\"
+					Action="0" AttachedTemplate="101" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="4" FilterThresh="490"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="173" Name="JGZZM" ImagePath="FJDMZJ\JCZ\JGZZM\"
+						Action="0" AttachedTemplate="101" ChildNum="0" />
+					<TemplateGroup Index="174" Name="JGZ_B" ImagePath="FJDMZJ\JGZ_B\"
+						Action="1" AttachedTemplate="113" ChildNum="0" />
+				</TemplateGroup>
+				<TemplateGroup Index="172" Name="JGZ_A" ImagePath="FJDMZJ\JGZ_A\"
+					Action="1" AttachedTemplate="112" ChildNum="0" />
+				<TemplateGroup Index="196" Name="QMJKBXK" ImagePath="FJDMZJ\QMJKBXK\"
+					Action="1" AttachedTemplate="1041" ChildNum="0" />
+			</TemplateGroup>
+			<TemplateGroup Index="117" Name="JGZFM" ImagePath="FJDMZJ\JCZ\JGZFM\"
+				Action="1" AttachedTemplate="102" ChildNum="0" />
+			<TemplateGroup Index="118" Name="JGZ" ImagePath="FJDMZJ\JGZ\"
+				Action="1" AttachedTemplate="103" ChildNum="0" />
+			<TemplateGroup Index="119" Name="BMZ_A" ImagePath="FJDMZJ\BMZ\BMZ_A\"
+				Action="1" AttachedTemplate="104" ChildNum="0" />
+			<TemplateGroup Index="120" Name="BMZ_B" ImagePath="FJDMZJ\BMZ\BMZ_B\"
+				Action="1" AttachedTemplate="105" ChildNum="0" />
+			<TemplateGroup Index="121" Name="HKB" ImagePath="FJDMZJ\HKB\"
+				Action="1" AttachedTemplate="106" ChildNum="0" />
+			<TemplateGroup Index="122" Name="LSHYZ" ImagePath="FJDMZJ\LSHYZ\"
+				Action="1" AttachedTemplate="107" ChildNum="0" />
+			<TemplateGroup Index="123" Name="LSZ_A" ImagePath="FJDMZJ\LSZ\LSZ_A\"
+				Action="1" AttachedTemplate="108" ChildNum="0" />
+			<TemplateGroup Index="124" Name="LSZ_B" ImagePath="FJDMZJ\LSZ\LSZ_B\"
+				Action="1" AttachedTemplate="109" ChildNum="0" />
+			<TemplateGroup Index="125" Name="YSZ" ImagePath="FJDMZJ\YSZ\"
+				Action="1" AttachedTemplate="110" ChildNum="0" />
+			<TemplateGroup Index="126" Name="ZJJGDMZ" ImagePath="FJDMZJ\ZJJGDMZ\"
+				Action="1" AttachedTemplate="111" ChildNum="0" />
+			<TemplateGroup Index="127" Name="JGZ_A"
+				ImagePath="FJDMZJ\JGZ_A\20149261512.jpg" Action="1"
+				AttachedTemplate="112" ChildNum="0" />
+			<TemplateGroup Index="128" Name="JGZ_B" ImagePath="FJDMZJ\JGZ_B\"
+				Action="1" AttachedTemplate="113" ChildNum="0" />
+			<TemplateGroup Index="129" Name="LQPZ" ImagePath="FJDMZJ\LQPZ\"
+				Action="1" AttachedTemplate="114" ChildNum="0" />
+			<TemplateGroup Index="130" Name="YDZ" ImagePath="FJDMZJ\YDZ\"
+				Action="1" AttachedTemplate="115" ChildNum="0" />
+			<TemplateGroup Index="131" Name="DLYGWLGATXZ"
+				ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="0" AttachedTemplate="21"
+				ChildNum="2">
+				<FilterConfigList Size="1">
+					<FilterConfig RefFilter="3" FilterThresh="550"
+						FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+				</FilterConfigList>
+				<TemplateGroup Index="132" Name="DLYGWLGATXZ"
+					ImagePath="44JDMZJ\DLYGWLGATXZ\" Action="1" AttachedTemplate="21"
+					ChildNum="0" />
+				<TemplateGroup Index="175" Name="JGZ_B" ImagePath="FJDMZJ\JGZ_B\"
+					Action="0" AttachedTemplate="113" ChildNum="2">
+					<FilterConfigList Size="1">
+						<FilterConfig RefFilter="3" FilterThresh="250"
+							FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+					</FilterConfigList>
+					<TemplateGroup Index="203" Name="JGZ_B1"
+						ImagePath="FJDMZJ\JGZ_B\JGZ_B1\" Action="0" AttachedTemplate="1046"
+						ChildNum="0" />
+					<TemplateGroup Index="204" Name="TaiWanShenFenZBM10"
+						ImagePath="FJDMZJ\JGZ_B\TaiWanShenFenZBM10\" Action="1"
+						AttachedTemplate="1044" ChildNum="0" />
+				</TemplateGroup>
+			</TemplateGroup>
+			<TemplateGroup Index="144" Name="SHBZK_1" ImagePath="FJDMZJ\SHBZK_1\"
+				Action="1" AttachedTemplate="125" ChildNum="0" />
+			<TemplateGroup Index="147" Name="CQSBK" ImagePath="FJDMZJ\CQSBK\"
+				Action="1" AttachedTemplate="128" ChildNum="0" />
+			<TemplateGroup Index="156" Name="GXZJZJQJZZ" ImagePath="FJDMZJ\GXZJZJQJZZ\"
+				Action="1" AttachedTemplate="139" ChildNum="0" />
+			<TemplateGroup Index="178" Name="HCCYJiangKangZhengBM"
+				ImagePath="FJDMZJ\HCCYJiangKangZhengBM\" Action="1"
+				AttachedTemplate="1023" ChildNum="0" />
+			<TemplateGroup Index="179" Name="HCCYJiangKangZhengZM"
+				ImagePath="FJDMZJ\HCCYJiangKangZhengZM\" Action="1"
+				AttachedTemplate="1024" ChildNum="0" />
+			<TemplateGroup Index="180" Name="HCCYPXHeGeZhengBM"
+				ImagePath="FJDMZJ\HCCYPXHeGeZhengBM\" Action="1" AttachedTemplate="1025"
+				ChildNum="0" />
+			<TemplateGroup Index="181" Name="HCCYPXHeGeZhengZM"
+				ImagePath="FJDMZJ\HCCYPXHeGeZhengZM\" Action="1" AttachedTemplate="1026"
+				ChildNum="0" />
+			<TemplateGroup Index="182" Name="HCCYShiRenZhengBM"
+				ImagePath="FJDMZJ\HCCYShiRenZhengBM\" Action="1" AttachedTemplate="1027"
+				ChildNum="0" />
+			<TemplateGroup Index="183" Name="HCCYShiRenZhengZM"
+				ImagePath="FJDMZJ\HCCYShiRenZhengZM\" Action="1" AttachedTemplate="1028"
+				ChildNum="0" />
+			<TemplateGroup Index="184" Name="NeiMengGuFaYuanGZZ"
+				ImagePath="FJDMZJ\NeiMengGuFaYuanGZZ\" Action="1" AttachedTemplate="1029"
+				ChildNum="0" />
+			<TemplateGroup Index="185" Name="NeiMengGuJiangChaYuanGZZ"
+				ImagePath="FJDMZJ\NeiMengGuJiangChaYuanGZZ\" Action="1"
+				AttachedTemplate="1030" ChildNum="0" />
+			<TemplateGroup Index="186" Name="NeiMengGuJiangChaYuanGZZ_1"
+				ImagePath="FJDMZJ\NeiMengGuJiangChaYuanGZZ_1\" Action="1"
+				AttachedTemplate="1031" ChildNum="0" />
+			<TemplateGroup Index="192" Name="LSJZZ" ImagePath="FJDMZJ\LSJZZ\"
+				Action="1" AttachedTemplate="1038" ChildNum="0" />
+			<TemplateGroup Index="193" Name="ShiBingZheng"
+				ImagePath="FJDMZJ\ShiBingZheng\" Action="1" AttachedTemplate="1039"
+				ChildNum="0" />
+			<TemplateGroup Index="194" Name="PLAJiaShiZheng"
+				ImagePath="FJDMZJ\PLAJiaShiZheng\" Action="1" AttachedTemplate="1040"
+				ChildNum="0" />
+			<TemplateGroup Index="195" Name="QMJKBXK" ImagePath="FJDMZJ\QMJKBXK\"
+				Action="1" AttachedTemplate="1041" ChildNum="0" />
+			<TemplateGroup Index="199" Name="TaiWanShenFenZZM"
+				ImagePath="FJDMZJ\TaiWanShenFenZZM\" Action="1" AttachedTemplate="1043"
+				ChildNum="0" />
+			<TemplateGroup Index="200" Name="TaiWanShenFenZBM"
+				ImagePath="FJDMZJ\TaiWanShenFenZBM\" Action="1" AttachedTemplate="1044"
+				ChildNum="0" />
+		</TemplateGroup>
+	</TemplateGroup>
+</MainTemplate>

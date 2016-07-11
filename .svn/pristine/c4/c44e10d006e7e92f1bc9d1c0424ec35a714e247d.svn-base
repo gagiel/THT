@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="8" ID="" Name="TaiwanQZ" ImagePath="36JDMZJ\TWQZ\001002.jpg"
+	OutputID="">
+	<FilterInfoList Size="2">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="5701724"
+					CompareType="0" Charset="" Text="TZE[\U&lt;]{33}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1545" Top="7166" Right="9601" Bottom="7698" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6946927"
+					CompareType="0" Charset="" Text="\D{8}&lt;\DCHN\D{7}[MF]\D{7}[\U\D]{8}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1491" Top="7882" Right="9588" Bottom="8471" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="182" Top="502" Right="6167" Bottom="2088">
+				<RefAnchorList Size="2">
+					<RefAnchor ID="1" RefAnchorID="1" DistToAnchor="-7920"
+						LocationType="2" />
+					<RefAnchor ID="2" RefAnchorID="1" DistToAnchor="-6324"
+						LocationType="4" />
+				</RefAnchorList>
+			</Region>
+			<LineLocation MinNum="1" MaxNum="2" MinLength="2091"
+				MaxLength="6086" MinHeight="328" MaxHeight="676" MinSpace="193"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-10"
+				BottomPlus="5">
+				<LineLocationRange Left="8" Top="0" Right="80"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="6" MaxNum="25" MinWidth="202"
+				MaxWidth="418" MinHeight="328" MaxHeight="657" MinSpace="26"
+				MaxSpace="242" MinWHRatio="83" MaxWHRatio="123" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="85" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1675057921"
+					CompareType="0" Charset="" Text="台湾居民签注" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1781" Top="1150" Right="4581" Bottom="1750" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

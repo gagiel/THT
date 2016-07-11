@@ -1,0 +1,1 @@
+alter table t_plan_done  modify column d_time varchar(20);

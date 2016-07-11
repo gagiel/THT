@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand">
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jquery-1.9.1.min.js" type="text/javascript" ></script>
+    <script src="/js/xw.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var h = 155;
+            $('.con_detail').height($(window).height()-h);
+            $(window).resize(function(){
+                $('.con_detail').height($(window).height()-h);
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript" src="/js/calendar/WdatePicker.js"></script>
+<script src="/js/tree.js" type="text/javascript" ></script>
+<link href="/css/tree.css" rel="stylesheet" type="text/css" />
+<style>
+    .biaozhun01{min-width:96%; border:none;}
+    .biaozhun01 .cklt{width:70px;}
+    .biaozhun03 , .biaozhun04{min-width:100%; border:none;}
+    textarea.bzsr13{width:200px;}
+    input.bzsr8{width:180px;}
+    input.qqzb{width:500px;}
+    .tj_bnt{height: 15px; line-height: 10px; width: 15px;margin: 10px 0 0;}
+</style>
+
+<iframe id="info_frame" name="info_frame" style="display:none"></iframe>
+
+<form id="create_form" name="create_form" method="post" action="/index.php/plan/area_session" >
+        <div>
+            <!-- 加载编辑器的容器 -->
+            <script id="info"><?php if(!empty($info->info_add)){echo $info->info_add;}?></script>
+            <!-- 配置文件 -->
+            <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+            <!-- 编辑器源码文件 -->
+            <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+        </div>
+</form>
+
+
+
+<script>
+    $(function(){
+        $('.edui-default').css('height','360px');
+        $('.edui-editor-iframeholder').css('height','360px');
+        /********* 高度自适应 *********/
+        var h = 190;
+        $('.con_detail').height($(window).height()-h);
+        $('.info_left').height($('.con_detail').height()-20);
+        $('.info_left').width($('.con_detail').width()-710);
+        var editor = new UE.ui.Editor({
+            toolbars:[[
+                'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'removeformat', '|',
+                'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'indent', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|','simpleupload','insertimage',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'selectall', 'cleardoc']],
+            initialHeight:$('.con_detail').height()-220,
+            initialFrameHeight:$('.con_detail').height()-220,
+            initialWidth:680,
+            initialFrameWidth:680,
+            scaleEnabled:true
+        });
+        editor.render("info");
+        $(window).resize(function(){
+            $('.con_detail').height($(window).height()-h);
+            $('.info_left').height($('.con_detail').height()-20);
+            $('.info_left').width($('.con_detail').width()-710);
+            editor.setHeight($('.con_detail').height()-220);
+        });
+        /********* 高度自适应 *********/
+
+        $('#btn_create').click(function(){
+            var num_y	= $('#c_num_y').val();
+            var num_n	= $('#c_num_n').val();
+            var title	= $('#c_title').val();
+            var start	= $('#c_start').val();
+            var re_time	= $('#c_re_time').val();
+            var c_names =  $('[name="c_names"]').val();
+            var c_department = $('[name="c_department"]').val();
+            var flag = false;
+            if(num_y=='' || num_n=='')
+            {
+                alert('请填写编号');
+                return false;
+            }
+            if(title=='')
+            {
+                alert('请填写标题');
+                return false;
+            }
+            if(start=='')
+            {
+                alert('请填写开始时间');
+                return false;
+            }
+            if(re_time=='')
+            {
+                alert('请填写发布时间');
+                return false;
+            }
+            $('[name="c_address[]"]').each(function(){
+                if($(this).val()){
+                    flag = true;
+                }
+            });
+            if(!flag){
+                alert('请填写地址');
+                return false;
+            }
+            if(c_names == ''){
+                alert('请选择出席领导');
+                return false;
+            }
+            if(c_department == ''){
+                alert('请选择参加范围');
+                return false;
+            }
+            $("#create_form").submit();
+        });
+
+    });
+    //获取info的值
+    function info_area(){
+        return $('#info').val();
+    }
+    //提交富文本编辑器内容
+    function get_area(){
+        $('#create_form').submit();
+    }
+    function closeWin()
+    {
+        $('#winregister').hide();
+        $('#wincover').hide();
+    }
+    function closeWinFile()
+    {
+        $("input[name='c_file[]']").each(function(){
+            if(this.value=='')
+                del_file(this);
+        });
+        closeWin();
+    }
+
+    function change(i,checked) {
+        $("input[type='checkbox']").each(function(){
+            if(this.className=='check_'+i)
+                this.checked=checked;
+        });
+    }
+
+    /* 获取tr在table中所在行号 */
+    function getTrIndex(trObj,tbObj)
+    {
+        trIndex = 0;
+        var trArr = tbObj.children;
+        for(var trNo= 0; trNo < trArr.length; trNo++)
+        {
+            if(trObj == tbObj.children[trNo])
+            {
+                break;
+            }
+            trIndex++;
+        }
+        return trIndex;
+    }
+
+    /****** 添加/删除地址 ******/
+    function add_addr(obj)
+    {
+        var trObj = obj.parentNode.parentNode;
+        var tbObj = trObj.parentNode;
+        var trIndex = getTrIndex(trObj,tbObj)+1;
+
+        var newTr = tbObj.insertRow(trIndex);//添加新行，trIndex就是要添加的位置
+        var newTd1 = newTr.insertCell();
+        newTd1.innerHTML = '<input type="text" class="bzsr8" name="c_address[]" value=""/>'
+            + '<input type="button" value="+" class="tj_bnt tabn" style="margin-top:10px;" onclick="add_addr(this)"/>'
+            + '<input type="button" value="-" class="tj_bnt tabn" style="margin-top:10px; margin-left:2px;" onclick="min_addr(this)"/>';
+    }
+    function min_addr(obj)
+    {
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+    }
+
+    /****** 添加/删除具体安排 ******/
+    function add_time(obj)
+    {
+        var trObj = obj.parentNode.parentNode;
+        var tbObj = trObj.parentNode;
+        var trIndex = getTrIndex(trObj,tbObj)+1;
+
+        var newTr = tbObj.insertRow(trIndex);//添加新行，trIndex就是要添加的位置
+        var newTd1 = newTr.insertCell();
+        newTd1.innerHTML = '<input class="Wdate bzsr" name="c_time[]" value="" id="d4321" onfocus="WdatePicker({dateFmt:\'HH:mm\'})" style="width:15%; float: left; text-align:center;" type="text"><input class="bzsr11" name="c_plan[]" type="text" style="width:74%; float: left; "><input type="button" value="+" class="tj_bnt tabn" style="" onclick="add_time(this)" />'
+            + '<input type="button" value="-" class="tj_bnt tabn" style=" margin-left:2px;" onclick="del_time(this)" />';
+    }
+    function del_time(obj)
+    {
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+    }
+
+    /****** 添加删除工作分工 ******/
+    function add_done(obj)
+    {
+        var trObj = obj.parentNode.parentNode;
+        var tbObj = trObj.parentNode;
+        var trIndex = getTrIndex(trObj,tbObj)+1;
+
+        var newTr = tbObj.insertRow(trIndex);//添加新行，trIndex就是要添加的位置
+        var newTd1 = newTr.insertCell();
+        newTd1.innerHTML = '<input class="bzsr10" name="c_done[]" type="text" style="width:90%; float: left;"><input type="button" value="+" class="tj_bnt tabn" style="" onclick="add_done(this)" />'
+            + '<input type="button" value="-" class="tj_bnt tabn" style=" margin-left:2px;" onclick="del_done(this)" />';
+
+    }
+    function del_done(obj)
+    {
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+    }
+
+    /****** 删除准备事项 ******/
+    function add_ready(obj)
+    {
+        var trObj = obj.parentNode.parentNode;
+        var tbObj = trObj.parentNode;
+        var trIndex = getTrIndex(trObj,tbObj)+1;
+
+        var newTr = tbObj.insertRow(trIndex);//添加新行，trIndex就是要添加的位置
+        var newTd1 = newTr.insertCell();
+        newTd1.innerHTML = '<input type="text" class="bzsr8 qqzb" name="c_ready[]"/>'
+            + '<input type="button" value="+" class="tj_bnt tabn" style="margin-top:10px;" onclick="add_ready(this)"/>'
+            + '<input type="button" value="-" class="tj_bnt tabn" style="margin-top:10px; margin-left:2px;" onclick="del_ready(this)"/>';
+    }
+    function del_ready(obj)
+    {
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+    }
+
+    /* 添加/删除附件 */
+    var file_num = 0;
+    function add_file(obj)
+    {
+        file_num++;
+
+        var trObj = obj.parentNode.parentNode;
+        var tbObj = trObj.parentNode;
+        var trIndex = getTrIndex(trObj,tbObj);
+
+        var newTr = tbObj.insertRow(trIndex);//添加新行，trIndex就是要添加的位置
+        var newTd1 = newTr.insertCell();
+        newTd1.innerHTML = '<label style="float:left; line-height:30px" id="filename_'+file_num+'"></label>'
+            + '<input type="hidden" name="c_file[]" id="file_'+file_num+'"/>'
+            + '<input type="hidden" name="c_fileurl[]" id="fileurl_'+file_num+'"/>'
+            + '<input type="button" value="-" class="tj_bnt tabn" style="margin-left:5px;" onclick="del_file(this)"/>';
+        get_file(file_num);
+    }
+
+    function del_file(obj)
+    {
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+    }
+    /* 选择出席领导 */
+    function get_ld()
+    {
+        $("#div_title").html("新增方案--出席领导");
+
+        $('#dept_div').hide();
+        $('#file_div').hide();
+
+        $('#names_div').show();
+
+        $('#btn_win_div').show();
+        $('#btn_win_save').attr('onclick','do_names()');
+
+        $('#wincover').show();
+        $('#winregister').center();
+    }
+    function do_names()
+    {
+        var names = '';
+        $('input[name="r_names"]').each(function(){
+            if(this.checked)
+            {
+                if(names!='')names += ',';
+                names += $(this).val();
+            }
+        });
+        $("#c_names").val(names);
+        $("#names_show").html(names);
+
+        $('#wincover').hide();
+        $('#winregister').hide();
+
+    }
+
+    /* 选择参加范围 */
+    function get_fw()
+    {
+        $("#div_title").html("新增方案--参加范围");
+
+        $('#names_div').hide();
+        $('#file_div').hide();
+
+        $('#dept_div').show();
+
+        $('#btn_win_div').show();
+        $('#btn_win_save').attr('onclick','do_dept()');
+
+        $('#wincover').show();
+        $('#winregister').center();
+    }
+    function do_dept()
+    {
+        var dept = '';
+        $('input[name="r_dept"]').each(function(){
+            if(this.checked)
+            {
+                if(dept!='')dept += ',';
+                dept += $(this).val();
+            }
+        });
+        $("#c_department").val(dept);
+        $("#department_show").html(dept);
+
+        $('#wincover').hide();
+        $('#winregister').hide();
+
+    }
+    /* 上传附件 */
+    function get_file(num)
+    {
+        $("#div_title").html("新增方案--上传附件");
+
+        $('#dept_div').hide();
+        $('#names_div').hide();
+
+        $('#file_div').show();
+
+        $('#i_pic').attr('num',num);
+        $('#i_pic').val('');
+        $('#i_pic').attr("filename","");
+
+        $('#btn_win_div').hide();
+
+        $('#wincover').show();
+        $('#winregister').center();
+    }
+    function do_file(){
+        var url=$('#i_pic').val();
+        var name=$('#i_pic').attr('filename');
+
+        $("#filename_"+file_num).text(name);
+        $("#file_"+file_num).val(name);
+        $("#fileurl_"+file_num).val(url);
+        $('#wincover').hide();
+        $('#winregister').hide();
+    }
+    //上传图片后，返回显示
+    function pic_back(re)
+    {
+        if(re=='false')
+        {
+            alert('文件上传失败');
+        }
+        else
+        {
+            var retu=re.split(",");
+            $("#i_pic").val(retu[1]);
+            $("#i_pic").attr("filename",retu[0]);
+            do_file();
+        }
+    }
+</script>

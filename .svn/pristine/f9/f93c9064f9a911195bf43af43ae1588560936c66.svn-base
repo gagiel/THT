@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="66" ID="1001" Name="HongKongYJXSFZ"
+	ImagePath="FJDMZJ\HongKongYJXSFZ\4715.JPG" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="1785" Top="7564" Right="10000" Bottom="9951" />
+			<LineLocation MinNum="1" MaxNum="2" MinLength="5079"
+				MaxLength="8333" MinHeight="448" MaxHeight="833" MinSpace="352"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="21" Top="0" Right="84"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="15" MaxNum="25" MinWidth="59"
+				MaxWidth="337" MinHeight="30" MaxHeight="865" MinSpace="39"
+				MaxSpace="1527" MinWHRatio="23" MaxWHRatio="106" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="4">
+						<CharRatio CharType="2" WHRatio="70" Charset="" />
+						<CharRatio CharType="10" WHRatio="37" Charset="1()" />
+						<CharRatio CharType="10" WHRatio="500" Charset="-" />
+						<CharRatio CharType="3" WHRatio="56" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="2" Offset="0" IsExist="1439914753"
+					CompareType="0" Charset="" Text="\D{2}-\D{2}-\D{2}\U\D{6}(\D)"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="2876" Top="8557" Right="9513" Bottom="9278" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

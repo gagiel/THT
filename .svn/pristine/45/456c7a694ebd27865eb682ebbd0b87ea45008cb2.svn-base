@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="61" ID="14" Name="GangAoJMLWNDTXZ"
+	ImagePath="FJDMZJ\GAJMWLNDTXZ\001002.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="5534" Top="31" Right="9931" Bottom="2763" />
+			<LineLocation MinNum="1" MaxNum="3" MinLength="1550"
+				MaxLength="4671" MinHeight="217" MaxHeight="714" MinSpace="10"
+				MaxSpace="1863" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="10" Top="0" Right="88"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="8" MaxNum="15" MinWidth="137"
+				MaxWidth="372" MinHeight="310" MaxHeight="993" MinSpace="39"
+				MaxSpace="235" MinWHRatio="18" MaxWHRatio="94" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="4">
+						<CharRatio CharType="2" WHRatio="66" Charset="" />
+						<CharRatio CharType="3" WHRatio="77" Charset="" />
+						<CharRatio CharType="10" WHRatio="31" Charset="1" />
+						<CharRatio CharType="1" WHRatio="90" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1439914753"
+					CompareType="0" Charset="" Text="[HM]\D{10}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="6084" Top="605" Right="9489" Bottom="1273" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

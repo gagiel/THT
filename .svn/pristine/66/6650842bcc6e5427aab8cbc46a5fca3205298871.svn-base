@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="93" ID="13" Name="Mongolia"
+	ImagePath="44JDMZJ\HZ\MENGGU\20138816121.jpg" OutputID="652">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="P[\U&lt;]MNG[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="322" Top="7234" Right="9375" Bottom="7794" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="-1163005939"
+					CompareType="0" Charset=""
+					Text="[\U&lt;]{2}\D{8}MNG\D{7}[FM][\U\D&lt;]{23}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="447" Top="7845" Right="9447" Bottom="8500" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

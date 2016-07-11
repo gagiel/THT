@@ -1,0 +1,416 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+header("Content-type:text/html;charset=utf-8");
+
+class Welcome extends CI_Controller
+{
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+        $this->load->helper('url');
+        $this->load->helper('select');
+        $this->load->model('m_contact_total');
+        $this->load->model('m_contact');
+    }
+
+    /**
+     * 系统首页
+     */
+    public function index()
+    {
+        //企业LOGO
+       // $this->load->model('m_contact_total');
+       // $logos = $this->m_contact_total->get_field(false, 't_company');
+        // 推荐企业logo
+        $this->load->model('m_company');
+        $reLogo=$this->m_company->companyLogo_list();
+        $data = array(
+            'is_login' => $this->session->userdata('user_id'),
+            'logos' => $reLogo,
+            //'recommendLogo'=>$reLogo
+        );
+        $this->load->view('welcome/index', $data);
+    }
+
+    /**
+     * 登录系统
+     */
+    public function login()
+    {
+        $account = $this->input->post('name');
+        $password = $this->input->post('pass');
+
+        $this->load->model('m_user');
+        $user = $this->m_user->user_get(array('account' => $account));
+        $this->load->model('m_contact_total');
+
+        $companyArr = $this->m_contact_total->get_field(FALSE, 't_company_account', array('account' => $account));
+        if (isset($companyArr['0'])) {
+            $comUser = $companyArr['0']['account'];
+        }
+
+
+        if (!$user) {
+            if ($comUser) {
+                if ($companyArr['0']['password'] != md5($password)) {
+                    $_error =& load_class('Exceptions', 'core');
+                    exit($_error->show_error('登录错误', '密码错误', 'error_to_index'));
+                } else {
+                    $session_data = array(
+                        'user_id' => $companyArr['0']['id'],
+                        'user_account' => $companyArr['0']['account'],
+                        'company_id' => $companyArr['0']['company_id'],
+                    );
+
+//                    var_dump($session_data);exit();
+                    if ($this->input->post('next')) {
+                        $this->session->sess_expiration = 86400 * 7; //下次自动登录，有效期7天，否则默认2小时
+                    }
+
+                    $this->session->set_userdata($session_data);
+
+                    redirect($this->config->base_url() . 'index.php/welcome/main');
+                }
+            }
+            $_error =& load_class('Exceptions', 'core');
+            exit($_error->show_error('登录错误', '账号不存在', 'error_to_index'));
+        } elseif ($user->password != md5($password)) {
+            $_error =& load_class('Exceptions', 'core');
+            exit($_error->show_error('登录错误', '密码错误', 'error_to_index'));
+        } else {
+            $this->load->model('m_department');
+            $department = $this->m_department->department_get(array('id' => $user->department));
+
+            $session_data = array(
+                'user_id' => $user->id,
+                'user_account' => $user->account,
+                'user_name' => $user->name,
+                'user_number' => $user->number,
+                'user_jurisdict' => trim($user->jurisdict . ',' . $department->jurisdict, ','),
+                'user_department' => $department->name,
+            );
+
+            if ($this->input->post('next')) {
+                $this->session->sess_expiration = 86400 * 7; //下次自动登录，有效期7天，否则默认2小时
+            }
+
+            $this->session->set_userdata($session_data);
+
+            redirect($this->config->base_url() . 'index.php/welcome/main');
+        }
+    }
+
+    /**
+     * 登出系统
+     */
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect($this->config->base_url() . 'index.php');
+    }
+
+    /*
+     * 修改密码
+     */
+    public function edit_password()
+    {
+        $userid = $this->session->userdata('user_id');
+        if (!isset($userid) || empty($userid)) {
+            $_error =& load_class('Exceptions', 'core');
+            exit($_error->show_error('登录错误', '请先登录系统', 'error_to_index'));
+        }
+
+        $this->load->view('main_header');
+        $this->load->view('welcome/edit_password');
+        $this->load->view('main_footer');
+    }
+
+
+    public function edit()
+    {
+        //type等于1的时候是企业账号；2是管理员账号
+        if ($_POST['type'] == '1') {
+            $accountArr = $this->m_contact_total->get_field($_POST['oldid'], 't_company_account');
+        } elseif($_POST['type'] == '2') {
+            $accountArr = $this->m_contact_total->get_field($_POST['oldid'], 't_user');
+        }else{
+            $_error =& load_class('Exceptions', 'core');
+            $_error->show_error('修改密码', '请先正确登录！', 'error_to_index');
+            $this->session->sess_destroy();
+            redirect($this->config->base_url() . 'index.php');
+        }
+        if (md5($_POST['oldpassword']) !== $accountArr['password']) {
+            $_error =& load_class('Exceptions', 'core');
+            exit($_error->show_error('密码错误', '原密码错误！', 'error_to_index'));
+        }
+        if ($_POST['newpassword'] !== $_POST['newpass'] || $_POST['newpassword'] === '') {
+            $_error =& load_class('Exceptions', 'core');
+            exit($_error->show_error('密码错误', '请正确填写新密码', 'error_to_index'));
+        }
+        $data = array('password' => md5($_POST['newpassword']));
+        if ($_POST['type'] == '1') {
+            $rel = $this->m_contact_total->edit($_POST['oldid'], 't_company_account', $data);
+        } else {
+            $rel = $this->m_contact_total->edit($_POST['oldid'], 't_user', $data);
+        }
+
+        if ($rel) {
+            $_error =& load_class('Exceptions', 'core');
+            $this->session->sess_destroy();
+            exit($_error->show_error('修改密码', '修改密码成功', 'error_to_index'));
+        } else {
+            $_error =& load_class('Exceptions', 'core');
+            exit($_error->show_error('修改密码', '修改密码失败', 'error_to_index'));
+        }
+    }
+
+
+    public function main()
+    {
+        redirect($this->config->base_url() . 'index.php/contact/index');
+        /*$this->load->library('login');
+        $this->login->check_login($this->session->userdata('user_id'));
+
+        $this->load->view('main_header');
+        $this->load->view('main_menu');
+        $this->load->view('welcome/main',array('select'	=> type_select()));
+        $this->load->view('main_footer');*/
+    }
+    
+
+	/**
+	 * ajax获取部门和人员
+	 */
+	public function getDptAndUserAjax(){
+		//******** 部门-人员 **********
+		header("Access-Control-Allow-Origin: *");
+		$this->load->model('m_department');
+		$data['d_list'] = $this->m_department->department_list();
+		$this->load->model('m_user');
+		$userList = $this->m_user->user_list();
+		if(is_array($userList))
+		{
+			foreach($userList as $v)
+			{
+				$data['u_list'][$v->department][] = $v;
+				$data['u_name'][$v->id] = $v->name;
+			}
+		}
+		//var_dump($data);
+		echo json_encode($data);
+		//******** 部门-人员 **********
+		
+	}
+	
+	/**
+	 * ajax获取数据库中所有的企业类型
+	 */
+	public function getCompanyTypeAjax(){
+		$this->load->model('m_contact_total');
+		$data = $this->m_contact_total->get_field(FALSE, 't_company_type');
+		echo json_encode($data);
+		
+	}
+	
+	/**
+	 * 通过企业名称得到企业详情 1.19改
+	 */
+    public function get_company_name()
+    {
+		$this->load->model('m_contact_total');
+    	$company_name = $_POST['name'];
+        $rel = $this->m_contact_total->get_field(FALSE, 't_company', array('name' => $company_name));
+        if ($rel) {
+            $data = $rel[0];
+            $relArr = $this->m_contact_total->get_field($rel[0]['ctype'], 't_company_type');
+            $data['typename'] = $relArr['name'];
+            $data['typeid'] = $relArr['id'];
+            if($data['settle']==0){
+            $data['settlename']="未落户";    
+            }else if($data['settle']==1){
+              $data['settlename']="已落户";   
+            }else if($data['settle']==2){
+              $data['settlename']="接洽中";     
+            }
+        } else {
+            $data = 0;
+        }
+        echo json_encode($data);
+    }
+    
+	/**
+	 * 根据输入文字获取单位名称列表，10个
+	 */
+	public function get_company_by_code()
+	{		
+		$this->load->model('m_company');
+		$list = $this->m_company->company_list(array('code'=>$this->input->post('name')),0,10);
+
+		$arr = array();
+		if(is_array($list))
+		{
+			foreach($list as $v)
+			{
+				$arr[] = $v->name;
+			}
+			echo implode(',',$arr);
+		}
+		else
+		{
+			echo '';
+		}
+	}
+	
+	/**
+	 * 
+	 * ajax保存名片信息
+	 */
+	public function saveContactAjax()
+	{
+        $data = array(
+        	'name'				=> trim($_POST['name']),
+        	'star'				=> trim($_POST['star']),
+        	'mobile'			=> trim(implode(',',$_POST['mobile'])),
+        	'tel'				=> trim(implode(',',$_POST['tel'])),
+        	'fax'				=> trim(implode(',',$_POST['fax'])),
+        	'email'				=> trim(implode(',', $_POST['email'])),
+        	'address_contact'	=> trim(implode(',',$_POST['address'])),
+        	'owner'				=> trim($_POST['owner']),
+        	'public'			=> empty($_POST['public']) ? 0 : $_POST['public'],
+        	'pic_front'			=> trim($_POST['front']),
+        	'pic_reverse'	    => trim($_POST['reverse']),
+        	'remark'			=> trim($_POST['remark']),
+        	'affairs_contact'	=> trim($_POST['affairs']),
+        	'addtime'           => date('Y-m-d H:i:s',time())
+        );
+        $arr_type	= $_POST['typeid'];
+        $arr_comp	= $_POST['companyname'];
+        $arr_url	= $this->input->post('url');
+        $arr_code	= $this->input->post('postcode');
+        $arr_posn	= $_POST['position'];
+        $arr_cpid	= $_POST['companyid'];
+        $arr_settle   = $_POST['settle'];
+        //$arr_relax	= $_POST['relax'];
+        //拼合单位信息数组
+        $arr_company = array();
+        if(is_array($arr_type))
+        {
+        	foreach($arr_type as $k => $v)
+        	{
+        		$arr_company[$k] = array(
+        			'type'	=> trim($v),
+        			'cpid'	=> trim($arr_cpid[$k]),
+        			'posn'	=> trim($arr_posn[$k]),
+        			'comp'	=> trim($arr_comp[$k]),
+                    'url'	=> trim($arr_url[$k]),
+                    'postcode'=>trim($arr_code[$k]),
+                    'settle'=> trim($arr_settle[$k])
+        		);
+        		if($arr_company[$k]['type']==0)
+        		{
+        			$result = array('code'=>101,'msg'=>'请填写单位分组');
+        		}
+        		if($arr_company[$k]['comp']=='')
+        		{
+        			$result = array('code'=>101,'msg'=>'请填写单位名称');
+        		}
+        		if($arr_company[$k]['posn']=='')
+        		{
+        			$result = array('code'=>101,'msg'=>'请填写职务信息');
+        		}
+        	}
+        }
+//        $this->load->model('m_contact');
+//        if($this->m_contact->contact_insert($data,$arr_company))
+//        {
+//        	$result = array('code'=>100,'msg'=>'保存成功');
+//        }
+//        else
+//        {
+//        	$result = array('code'=>101,'msg'=>'保存失败,请重试');
+//        }
+//        echo json_encode($result);
+        $companyExist=array();
+        $companyExistIn=array();
+        $status=true;
+        //得到单位库里面存在的的单位的信息
+        foreach($arr_company as $k=>$v)
+        {
+            if($v["cpid"]!="")
+            {
+                $companyExist[]=$v;
+            }
+
+        }
+
+        if($companyExist=="")
+        {
+            if($this->m_contact->contact_insert($data,$arr_company))
+            {
+                $result = array('code'=>100,'msg'=>'保存成功');
+            }
+            else
+            {
+                $result = array('code'=>101,'msg'=>'保存失败,请重试');
+            }
+        }
+        else
+        {
+            //逐一判断单位里是否存在名片的名字
+            foreach($companyExist as $value)
+            {
+                $result=$this->db->where(array('c_id'=>$value['cpid'],'u_name'=>$data['name']))->get('t_contact_app')->result_array();
+                if($result)
+                {
+                    $companyExistIn[]=$value['comp'];
+                    $status=FALSE;
+                }
+            }
+            if($status)
+            {
+                if($this->m_contact->contact_insert($data,$arr_company))
+                {
+                    $result = array('code'=>100,'msg'=>'保存成功');
+                }
+                else
+                {
+                    $result = array('code'=>101,'msg'=>'保存失败,请重试');
+                }
+            }
+            else
+            {
+                $companyExistIn=implode(',',$companyExistIn);
+                //exit("<script>alert('对不起".$companyExistIn."已经有该名称的员工');history.go(-1);</script>");
+                //$result=array('msg'=>'对不起".$companyExistIn."已经有该名称的员工');
+                $result=array('msg'=>'对不起,该公司已经有该名称的员工');
+            }
+        }
+        echo json_encode($result);
+	}
+	
+	/**
+	 * 
+	 * 测试上传图片
+	 */
+	public function testpic()
+	{
+		$imgData = $_POST['pic'];
+		$s = base64_decode(str_replace('data:image/png;base64,', '', $imgData));
+		$filename = './uploads/contact/'.date('YmdHis',time()).rand(100,999).'.jpg';
+		$pic = ltrim($filename,'.');
+		$status = file_put_contents($filename, $s);
+		if($status){
+			$result = array('pic'=>$pic,'msg'=>'上传成功');
+		}else{
+			$result = array('pic'=>$pic,'msg'=>'上传失败');
+		}
+		echo json_encode($result);
+	}
+	
+	
+
+}
+
+?>

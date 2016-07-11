@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="34" ID="13" Name="GJHZ" ImagePath="pg"
+	OutputID="512">
+	<FilterInfoList Size="2">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="114" Top="7678" Right="9682" Bottom="9748" />
+			<LineLocation MinNum="1" MaxNum="5" MinLength="7530"
+				MaxLength="9841" MinHeight="154" MaxHeight="406" MinSpace="290"
+				MaxSpace="676" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="2" Top="0" Right="97"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="10" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="38" MaxNum="50" MinWidth="40"
+				MaxWidth="229" MinHeight="154" MaxHeight="502" MinSpace="53"
+				MaxSpace="188" MinWHRatio="50" MaxWHRatio="120" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="6" FilterType="0"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="3">
+						<CharRatio CharType="2" WHRatio="68" Charset="" />
+						<CharRatio CharType="3" WHRatio="66" Charset="" />
+						<CharRatio CharType="10" WHRatio="75" Charset="&lt;" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1086766145"
+					CompareType="0" Charset="" Text="P[\U\D&lt;]{43}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="344" Top="8017" Right="9669" Bottom="8452" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+		<FilterInfo RefFilter="5" Type="4">
+			<Region Left="2890" Top="5393" Right="5250" Bottom="7190" />
+			<LineLocation MinNum="2" MaxNum="6" MinLength="791"
+				MaxLength="1281" MinHeight="174" MaxHeight="349" MinSpace="43"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="65535" MinNum="5" MaxNum="15"
+				MinWidth="41" MaxWidth="135" MinHeight="131" MaxHeight="349"
+				MinSpace="10" MaxSpace="218" MinWHRatio="25" MaxWHRatio="150"
+				IsRemoveLine="0" LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="3" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="2">
+						<CharRatio CharType="2" WHRatio="52" Charset="" />
+						<CharRatio CharType="10" WHRatio="42" Charset="1" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1"
+					CompareType="0" Charset="" Text="\D{8}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="2947" Top="5655" Right="4125" Bottom="5989" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="0"
+					CompareType="0" Charset="" Text="\D{8}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="2942" Top="6455" Right="4135" Bottom="6790" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

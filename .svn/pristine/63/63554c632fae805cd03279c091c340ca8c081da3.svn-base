@@ -1,0 +1,414 @@
+<div class="maincon">
+    <div class="sst_bg">
+        <p>当前位置：首页>名片系统>单位管理>修改单位</p>
+        <div class="sst_sm">
+<!--            --><?//=$select?>
+        </div>
+    </div>
+    <div class="con_detail">
+        <div class="newli_sb" >
+            <form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="/index.php/company/edit" id="sub_form">
+                <div class="nl_det">
+                    <label class="sizi">分 类：</label>
+                    <select name="ctype" class="bzsr2" id="typename_option_1">
+                        <option value="28">未分组</option>
+                        <?php foreach($typename as $v) :?>
+                            <?php $arr = explode('.',$v['detail']);$len = count($arr);$sp='';for($i=0;$i<$len-1;$i++){$sp .= "&nbsp;&nbsp;";}?>
+                            <option value ="<?php echo $v['id'] ?>" <?php if($v['id']==$ctype){echo "selected='selected'";}?>><?php echo $sp ?><?php echo $v['name'] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <label class="sizi">单位名称：</label>
+                    <input type="input" name="name" class="bzsr" value="<?php echo $name?>"/>
+                    <label class="sizi">单位LOGO：</label>
+                    <input type='text' class='bzsr' id='imgfile1' name="imgfile1" style="width:150px;" value="<?php echo $logo?>"/>
+                    <input type="button" value="浏览" class="s_bnt01" style="margin:5px 2px; height:25px;float:left;" onclick="$('#i_file').click();" />
+                    <p class="cknr"><span id="tname"></span></p>
+                    <p class="szts"><span></span></p>
+                    <div style="float:left;">
+                        <label class="sizi">单位简介：</label>
+                        <textarea type="textarea" name="brief" class="bzsr4" id="brief"><?php echo $brief?></textarea>
+                        <p class="szts"><span></span></p>
+                        <label class="sizi">单位落户：</label>
+                        <?php foreach($settle_array as $key => $val){?>
+                        <input type="radio" name="settle" id="settle<?php echo $key?>" class="" <?php if($key==$settle){echo "checked='checked'";}?> value="<?php echo $key?>" /> <?php echo $val?>
+                        <?php }?>
+                        <p class="szts"><span></span></p>
+                        <label class="sizi">参观路线：</label>
+                        <input type="input" name="way"  class="bzsr" value="<?php echo $way?>"/>
+                    </div>
+                    <div style="float:left; margin: 0 0 5px 84px; ">
+                        <?php if(!empty($logo)){?>
+                            <img id="img_show" border="0" src="<?php echo $logo?>" style="width:120px; height:120px;">
+                        <?php }else{?>
+                            <img id="img_show" border="0" src="/images/logo_03.jpg" style="width:120px; height:120px;">
+                        <?php }?>
+                    </div>
+                    <p class="szts"><span></span></p>
+                    <label class="sizi">产品图片：</label><br /><br />
+                    <!-- 加载编辑器的容器 -->
+                    <script id="info" name="info" type="text/plain" style="height:180px;"><?php echo $pic?></script>
+                    <!-- 配置文件 -->
+                    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+                    <!-- 编辑器源码文件 -->
+                    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+                    <!-- 实例化编辑器 -->
+                    <script type="text/javascript">
+                        var ue = UE.getEditor('info',{
+                            initialHeight:400,
+                            initialFrameHeight:400,
+                            scaleEnabled:true
+                        });
+                    </script>
+                    <div id="contact" style="display:none">
+                        <input type="text" id="contactstr" />
+                    </div>
+                    <div id="contact_arr" style="display:none">
+                        <label class="sizi">联 系 人：</label>
+                        <ul class="lxr_con">
+                            <li><span>欧阳三四</span><span>人力资源部总经理</span></li>
+                            <li><span>欧阳三</span><span>总经理</span></li>
+                        </ul>
+                    </div>
+                    <div id="settle_arr" style="display:none">
+                        <label class="sizi">领导批示：</label><br />
+                        <ul class="lxr_settle">
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="caozuo5" style="z-index: 9999">
+                    <input type="hidden" id="mid" name="mid" value="<?php echo $id?>"/>
+                    <input type="hidden" id="edittype" name="edittype" value="0"/>
+                    <input type="botton" class="b_bnt01" value="保 存" id="save" onclick="checksubmit()"/>
+                    <input type="botton" class="b_bnt01" value="取 消" onclick="window.location.href='/index.php/company/index'">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<iframe name='pic_frame' id="pic_frame" style='display:none'></iframe>
+<form id="pic_form" name="pic_form" action="/index.php/contact/pic" encType="multipart/form-data"  method="post" target="pic_frame">
+    <input type="file" class="file" id="i_file" name="i_file" onchange="this.form.submit();" style="position:absolute; filter:alpha(opacity:0);opacity: 0; width:1px;" />
+</form>
+<script>
+
+    function settlesubmit(){
+        if($("#settleinfo").val() == ''){
+            alert ("批示内容不能为空，请填写批示！");
+            return false;
+        }else{
+            $("#settle_form").submit();
+        }
+    }
+
+    function checksubmit()
+    {
+        if($("#typename_option_1").val()==0){
+            $("#typename_option_1").val()
+            alert("分组不能为空！");
+            return false;
+        }
+        if($("input[name='name']").val()==''){
+            alert("单位名称不能为空！");
+            return false;
+        }
+
+        $("#sub_form").submit();
+    }
+
+    //ok
+    function addInfo()
+    {
+        $('#div_title').html('名片系统--新建单位');
+        $('#sub_form').attr('action', '/index.php/company/add');
+        document.getElementById("sub_form").reset();
+        //分组
+        $("#typename_option_1").show();
+        $(".cknr").hide();
+        //产品图片
+        ue.setContent('');
+        $("#img_show").attr("src","/images/logo_03.jpg");
+        //$("#preview1").hide();
+        //$("#upimg1").show();
+        $("#save").show();
+        $("#close").val("取消");
+        $("#contact_arr").hide();
+        $('#wincover').show();
+        $('#winregister').center();
+    }
+
+    function editInfo(id)
+    {
+        $('#sub_form').attr('action', '/index.php/company/edit');
+        $.post(
+            "/index.php/company/check",
+            {
+                id:id
+            },
+            function (data) //回传函数
+            {
+
+                var obj = eval('('+data+')');
+
+                $('#div_title').html('名片系统--修改单位');
+                $('#sub_form').attr('action', '/index.php/company/edit');
+                /* 	document.getElementById("sub_form").reset(); */
+
+                //分组
+                $("#typename_option_1").val(obj.ctype);
+                //传到后台id以及name
+                $("#mid").val(obj.id);
+                $("input[name='name']").val(obj.name);
+                //简介
+                $("#brief").val(obj.brief);
+                if(obj.logo){
+                    var logo = obj.logo
+                    $("#imgfile1").val(logo);
+                    //$("#imgfile1").show();
+                    $("#img_show").attr("src",logo);
+                }
+                $('#settle0').prop('checked',false);
+                if(obj.settle==0){
+                    $("#settle0").prop("checked",true);
+                }else if(obj.settle==1){
+                    $("#settle1").prop("checked",true);
+                }else if(obj.settle==2){
+                    $("#settle2").prop("checked",true);
+                }
+                //参观路线
+                $("input[name='way']").val(obj.way);
+                //产品图片
+                if(obj.pic){
+                    ue.setContent(obj.pic);
+                }else{
+                    ue.setContent('');
+                }
+                $("#contact_arr").hide();
+                $("#edittype").val("0");
+                $("#save").show();
+                $("#save").removeAttr("onclick");
+                $("#save").attr("onclick","$('#sub_form').submit()")
+                $("#close").val("取消");
+                $('#wincover').show();
+                $('#winregister').center();
+            }
+        );
+    }
+
+    //ok
+    function recommendInfo(id)
+    {
+        $('#sub_form').attr('action', '/index.php/company/edit');
+        $.post(
+            "/index.php/company/check",
+            {
+                id:id
+            },
+            function (data) //回传函数
+            {
+                var obj = eval('('+data+')');
+
+                $('#div_title').html('名片系统--推荐单位');
+                $('#sub_form').attr('action', '/index.php/company/edit');
+
+                //分组
+                $("#typename_option_1").hide();
+                $(".cknr").show();
+                $("#tname").html(obj.tname);
+                //logo
+                $("#upimg1").hide();
+                $("#preview1").hide();
+                if(obj.logo){
+                    var logo = obj.logo
+                    $("#imgfile1").val(logo);
+                    //$("#imgfile1").show();
+                    $("#img_show").attr("src",logo);
+                }
+                //传到后台id以及name
+                $("#mid").val(obj.id);
+                $("input[name='name']").val(obj.name);
+                $("input[name='name']").attr('readonly','readonly');
+                $('#settle0').prop('checked',false);
+                if(obj.settle==0){
+                    $("#settle0").prop("checked",true);
+                }else if(obj.settle==1){
+                    $("#settle1").prop("checked",true);
+                }else if(obj.settle==2){
+                    $("#settle2").prop("checked",true);
+                }
+                //简介
+                $("#brief").val(obj.brief);
+                //参观路线
+                $("input[name='way']").val(obj.way);
+                //产品图片
+                if(obj.pic){
+                    ue.setContent(obj.pic);
+                }else{
+                    ue.setContent('');
+                }
+                $("#edittype").val("1");
+                $("#contact_arr").hide();
+                $("#save").show();
+                $("#save").removeAttr("onclick");
+                $("#save").attr("onclick","$('#sub_form').submit()")
+                $("#close").val("取消");
+                $('#wincover').show();
+                $('#winregister').center();
+            }
+        );
+    }
+
+
+    //ok
+    function stopInfo(id)
+    {
+        if(confirm("确认删除该单位吗？"))
+        {
+            $.post(
+                "/index.php/company/stop",
+                {
+                    id:id
+                },
+                function (data) //回传函数
+                {
+                    if(data=='success')
+                    {
+                        alert('删除成功');
+                        location.reload();
+                    }
+                    else if(data=='contact')
+                    {
+                        alert('单位下含有名片系统，删除失败！');
+                    }
+                    else
+                    {
+                        alert('操作失败！');
+                    }
+                }
+            );
+        }
+    }
+    /* 删除单位批示
+     第二期  1.28 */
+    function delsettle(id){
+        if(confirm("确认删除该批示吗？"))
+        {
+            $.post(
+                "/index.php/company/delsettle",
+                {
+                    id:id
+                },
+                function (data) //回传函数
+                {
+                    if(data=='success'){
+                        alert('删除成功');
+                        location.reload();
+                    }else if(data == 'no_power') {
+                        alert('对不起，您没有权限删除！');
+                    }else{
+                        alert('操作失败！');
+                    }
+                }
+            );
+        }
+    }
+    function pic_back(re)
+    {
+        if(re=='false')
+        {
+            alert('图片上传失败');
+        }
+        else
+        {
+            $("#imgfile1").val(re);
+            $("#img_show").attr("src",re);
+        }
+    }
+
+    function checkInfo(id)
+    {
+        $('#div_title').html('名片系统--查看单位');
+        $.post(
+            "/index.php/company/check",
+            {
+                id:id
+            },
+            function (data) //回传函数
+            {
+                var obj = eval('('+data+')');
+
+                $("#typename_option_1").hide();
+                $(".cknr").show();
+                $("#tname").html(obj.tname);
+                $("input[name='name']").val(obj.name);
+                $("#brief").val(obj.brief);
+                $("input[name='address']").val(obj.address);
+                $("input[name='affairs']").val(obj.affairs);
+                $("input[name='way']").val(obj.way);
+                $("input[name='logo']").hide();
+                $("input[name='pic']").hide();
+                //名片系统
+                $("#contact_arr").show();
+                var str = '';
+                var arr = obj.contact;
+                for(x in arr){
+                    str += '<li><span>'+arr[x]['name']+'</span><span>'+arr[x]['position']+'</span></li>';
+                }
+                $(".lxr_con").html(str);
+                //领导批示
+                $("#settle_arr").show();
+                var settlestr = '';
+                var settleArr = obj.settle;
+                for(x in settleArr){
+                    settlestr += '<li><span>'+settleArr[x]['username']+'</span><span>'+settleArr[x]['info']+'</span></li><input type="botton" class="b_bnt01" value="删除" onClick="delsettle('+settleArr[x]['id']+')"  />';
+                }
+                $(".lxr_settle").html(settlestr);
+                //logo
+                $("#upimg1").hide();
+                $("#preview1").hide();
+                if(obj.logo){
+                    var logo = obj.logo
+                    $("#logo").show();
+                    $("#logo").attr("src",logo);
+                }else{
+                    $("#upimg1").show();
+                }
+                //产品图片
+                if(obj.pic){
+                    ue.setContent(obj.pic);
+                }else{
+                    ue.setContent('');
+                }
+
+                $("#logo").show();
+                $("#pic").show();
+                $("#save").hide();
+                $("#close").val("关闭");
+                $('#wincover').show();
+                $('#winregister').center();
+            }
+        );
+    }
+
+    /* 添加单位批示的弹窗
+     第二期  1.27 */
+    function settleInfo(tid,id){
+        $.post(
+            "/index.php/company/settleindex",
+            {
+                tid:tid,
+                id:id
+            },
+            function (data) //回传函数
+            {
+                var obj = eval('('+data+')');
+                $('#settypename').html(obj.typename);
+                $('#setcompanyname').html(obj.companyname);
+                $('#company_id').val(obj.companyid);
+                $('#settlecover').show();
+                $('#settleregister').center();
+            }
+        );
+    }
+</script>

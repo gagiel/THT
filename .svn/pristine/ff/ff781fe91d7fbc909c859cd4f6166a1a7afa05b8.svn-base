@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="32" ID="13" Name="Indonesia"
+	ImagePath="44JDMZJ\HZ\YINNI\001001.jpg" OutputID="542">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="151580980"
+					CompareType="0" Charset="" Text="P[\U&lt;]IDN[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="533" Top="8268" Right="8778" Bottom="8665" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="151583860"
+					CompareType="0" Charset=""
+					Text="N\D{6}&lt;{2}\DIDN\D{7}[MF]\D{7}&lt;{14}\D{2}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="533" Top="9100" Right="8758" Bottom="9516" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

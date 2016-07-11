@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="1044" ID="1032" Name="TaiWanShenFenZBM"
+	ImagePath="FJDMZJ\TaiWanShenFenZBM\IDCardHolder1410845531667.jpg.jpg"
+	OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="106" Top="1197" Right="1708" Bottom="6407" />
+			<LineLocation MinNum="1" MaxNum="5" MinLength="676"
+				MaxLength="1637" MinHeight="419" MaxHeight="1077" MinSpace="419"
+				MaxSpace="1437" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="1" MaxNum="5" MinWidth="320"
+				MaxWidth="533" MinHeight="419" MaxHeight="1017" MinSpace="2"
+				MaxSpace="533" MinWHRatio="25" MaxWHRatio="130" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="80" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="3">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="5"
+					CompareType="0" Charset="" Text="配偶" CharNum="0" ForegroundColor="0"
+					BackgroundColor="0">
+					<Region Left="284" Top="1826" Right="1601" Bottom="2754" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="0"
+					CompareType="0" Charset="" Text="出生地" CharNum="0" ForegroundColor="0"
+					BackgroundColor="0">
+					<Region Left="266" Top="3233" Right="1601" Bottom="4191" />
+				</TextLine>
+				<TextLine Index="2" FilterType="1" Offset="2" IsExist="0"
+					CompareType="0" Charset="" Text="住址" CharNum="0" ForegroundColor="0"
+					BackgroundColor="0">
+					<Region Left="320" Top="5000" Right="1601" Bottom="5928" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

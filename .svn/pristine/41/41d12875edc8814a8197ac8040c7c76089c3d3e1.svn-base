@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+ <!--对于PR系列电子护照设备是否支持电子护照自动区分，0表示不区分则所有护照都走OCR识别流程，1则是电子护照的话则走电子护照读取流程-->  
+  <E-Passport value="1"/>
+  <!--对于PR系列电子护照设备是否支持多线程图像采集，0表示不支持，1表示支持-->
+  <ImageAcquisition value="1"/>
+  <!--写日志属性，0不写日志，1每次用覆盖的方式写日志，2追加方式写日志不会覆盖已有内容-->
+  <LogFlag value="1"/>
+  <InitIDCard value="1"/>
+</Config>

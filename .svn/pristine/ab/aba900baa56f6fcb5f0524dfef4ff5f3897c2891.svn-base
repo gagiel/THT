@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="113" ID="19" Name="JGZ_B"
+	ImagePath="FJDMZJ\JGZ_B\201492615258.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="4" Type="3">
+			<LineDetection Method="1" />
+			<FrameLineList Size="14">
+				<FrameLine Index="1" Style="0" Color="0" Angle="0">
+					<Line StartPtX="2645" StartPtY="806" EndPtX="9573" EndPtY="850" />
+				</FrameLine>
+				<FrameLine Index="2" Style="0" Color="0" Angle="0">
+					<Line StartPtX="2750" StartPtY="2021" EndPtX="9588" EndPtY="2079" />
+				</FrameLine>
+				<FrameLine Index="3" Style="0" Color="0" Angle="0">
+					<Line StartPtX="2698" StartPtY="3224" EndPtX="9536" EndPtY="3269" />
+				</FrameLine>
+				<FrameLine Index="4" Style="0" Color="0" Angle="0">
+					<Line StartPtX="2660" StartPtY="4427" EndPtX="9387" EndPtY="4472" />
+				</FrameLine>
+				<FrameLine Index="5" Style="0" Color="0" Angle="0">
+					<Line StartPtX="3183" StartPtY="5617" EndPtX="8004" EndPtY="5649" />
+				</FrameLine>
+				<FrameLine Index="6" Style="0" Color="0" Angle="0">
+					<Line StartPtX="3168" StartPtY="6858" EndPtX="5284" EndPtY="6877" />
+				</FrameLine>
+				<FrameLine Index="7" Style="0" Color="0" Angle="0">
+					<Line StartPtX="2750" StartPtY="7971" EndPtX="6270" EndPtY="8016" />
+				</FrameLine>
+				<FrameLine Index="8" Style="0" Color="0" Angle="0">
+					<Line StartPtX="2593" StartPtY="9200" EndPtX="9544" EndPtY="9283" />
+				</FrameLine>
+				<FrameLine Index="9" Style="0" Color="0" Angle="90">
+					<Line StartPtX="2623" StartPtY="799" EndPtX="2563" EndPtY="9187" />
+				</FrameLine>
+				<FrameLine Index="10" Style="0" Color="0" Angle="90">
+					<Line StartPtX="3781" StartPtY="6647" EndPtX="3766" EndPtY="9046" />
+				</FrameLine>
+				<FrameLine Index="11" Style="0" Color="0" Angle="90">
+					<Line StartPtX="3826" StartPtY="966" EndPtX="3789" EndPtY="6282" />
+				</FrameLine>
+				<FrameLine Index="12" Style="0" Color="0" Angle="90">
+					<Line StartPtX="7040" StartPtY="2079" EndPtX="7025" EndPtY="3230" />
+				</FrameLine>
+				<FrameLine Index="13" Style="0" Color="0" Angle="90">
+					<Line StartPtX="8191" StartPtY="2085" EndPtX="8191" EndPtY="3243" />
+				</FrameLine>
+				<FrameLine Index="14" Style="0" Color="0" Angle="90">
+					<Line StartPtX="9618" StartPtY="882" EndPtX="9566" EndPtY="9257" />
+				</FrameLine>
+			</FrameLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="26" ID="13" Name="ZGGWPTDZHZ_2011(PPPE)"
+	ImagePath="44JDMZJ\HZ\ZGGWPTDZHZ_2011(PPPE)\113.jpg" OutputID="273">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="5701724"
+					CompareType="0" Charset="" Text="PPCHN[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="438" Top="7949" Right="9386" Bottom="8384" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6946927"
+					CompareType="0" Charset=""
+					Text="PE\D{8}CHN\D{7}[MF]\D{7}[\U&lt;]{12}\U\D{3}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="445" Top="8655" Right="9379" Bottom="9110" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

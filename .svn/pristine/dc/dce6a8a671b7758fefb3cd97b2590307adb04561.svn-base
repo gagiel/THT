@@ -1,0 +1,388 @@
+<?
+$arr_jurisdict = explode(',',$this->session->userdata('user_jurisdict'));
+?>
+<div class="maincon">
+  <div class="sst_bg">
+    <p>当前位置：首页>工作人员>人员管理</p>
+	<div class="sst_sm">
+	  <?=$select?>
+	</div>
+  </div>
+
+
+  <div class="caozuo10">
+	<input type="button" value="上移" class="s_bnt04_u" onClick="markUp()" />
+	<input type="button" value="下移" class="s_bnt04_d" onClick="markDown()" />
+	<input name="" type="button" value="新增" class="s_bnt01" onClick="addInfo()"/>
+    <form id="get_form" action="/index.php/user" method="post" style="float:right;">
+<!--  <label class="sizi">姓 名：</label>-->
+<!--  <input type="text" class="bzsr" name="name" value="--><?//=$where['name']?><!--" />-->
+<!--  <label class="sizi">手机号：</label>-->
+<!--  <input type="text" class="bzsr" name="phone" value="--><?//=$where['phone']?><!--" />-->
+	<label class="sizi">关键字：</label>
+	<input type="text" class="bzsr" name="keyword" value="<?=$where['keyword']?>" onblur="$('#get_form').submit();"/>
+    <label class="sizi">部 门：</label>
+    <select class="bzsr2" name="department" onchange="$('#get_form').submit();">
+    <option value="0">请选择</option>
+    <?
+	if(is_array($department))
+	{
+		foreach($department as $key => $val)
+		{
+	?>
+	<option value="<?=$key?>"<? if($key==$where['department']) echo 'selected';?>><?=$val?></option>
+	<?
+		}
+	}
+	?>
+    </select>
+    </form>
+  </div>
+  <div class="con_detail">
+  <table cellspacing="0" cellpadding="0" class="biaozhun" style="margin-top: 10px;">
+  <tr class="tab_tit" >
+   <td width="10%">
+    	<div style="float:left;margin:0 2px 0 54px">排 序</div>
+    	</td>
+    <td width="10%">账 号</td>
+    <td width="20%">姓 名</td>
+    <td width="20%">部 门</td>
+    <td width="20%">手机号</td>
+	<? if(in_array('3',$arr_jurisdict)){ ?>
+    <td width="20%"></td>
+	<? } ?>
+  </tr>
+<? 
+if(is_array($list))
+{
+	$i = 0;
+	foreach($list as $v)
+	{
+		$i++;
+?>
+   <tr class="tab_content" id="tr_<?=$v->id?>_<?=$v->mark?>">
+    <td><input type="radio" name="sort" /></td>
+    <td id="account_<?=$i?>"><?=$v->account?></td>
+    <td id="name_<?=$i?>" class="zhongdian"><?=$v->name?></td>
+    <td><?=$department[$v->department]?></td>
+    <td id="phone_<?=$i?>"><?=$v->phone?></td>
+	<? if(in_array('3',$arr_jurisdict)){ ?>
+    <td>
+		<input type="hidden" id="id_<?=$i?>" value="<?=$v->id?>" />
+		<input type="hidden" id="department_<?=$i?>" value="<?=$v->department?>" />
+		<input type="hidden" id="def_send_<?=$i?>" value="<?=$v->def_send?>" />
+	    <input name="" type="button" value="删除" class="s_bnt01 red" onClick="delInfo(<?=$v->id?>)"/>
+	    <input name="" type="button" value="修改" class="s_bnt01 green" onClick="editInfo(<?=$i?>)"/>
+	    <input name="" type="button" value="权限" class="s_bnt01 yellwo" onClick="userJurisdict(<?=$i?>)"/>
+    </td>
+	<? } ?>
+  </tr>
+
+<?
+	}
+}
+?>
+  </table>
+    <div class="sabrosus"><?=$pages?></div>
+  </div>
+</div>
+
+<? if(in_array('3',$arr_jurisdict)){ ?>
+<div id="wincover"></div>
+<div class="newli" id="winregister">
+
+	<h3 id='div_title'>人员管理--</h3>
+	
+	<form id='sub_form' action="/index.php/user/add" method="post" >
+	  <input type="hidden" id="u_id" name="id" />
+	  <div class="nl_det">
+	    <label class="sizi">部门名称：</label>
+	    <select class="bzsr2" name="department" id="u_department">
+			<option value="0">请选择</option>
+			<? 
+			if(is_array($department))
+			{
+				foreach($department as $key => $val)
+				{
+			?>
+			<option value="<?=$key?>"><?=$val?></option>
+			<?
+				}
+			}
+			?>
+		</select>
+	    <p class="szts"><span></span></p>
+		<label class="sizi">姓 名：</label>
+	    <input type="text" class="bzsr" name="name" id="u_name" />
+	    <p class="szts"><span></span></p>
+		<label class="sizi">账 号：</label>
+	    <input type="text" class="bzsr" name="account" id="u_account" />
+	    <span id="error" style="color:red"></span> 
+	    <p class="szts"><span></span></p>
+		<label class="sizi">手机号：</label>
+	    <input type="text" class="bzsr" name="phone" id="u_phone" />
+	    <p class="szts"><span></span></p>
+		<label class="sizi"></label>
+	    <input type="checkbox" class="check_tree" name="def_send" id="u_def_send" value="1" style="margin-top: 10px;" /><span style="margin-left:5px;">(指定为活动方案短信默认发送人)</span>
+	    <p class="szts"><span></span></p>
+	  </div>
+	  <div class="caozuo">
+		  <input type="button" class="b_bnt01" value="保 存" onclick="check()" />
+		  <input type="reset" class="b_bnt01" value="取 消" onclick="$('#winregister').hide();$('#wincover').hide();"/>
+	  </div>
+	</form>
+	
+	<form id='tree_form' action="/index.php/user/jurisdict" method="post">
+	  <input type="hidden" class="text" name="t_uid" id="t_uid" value="0" />
+	  <div class="quanxian">
+	    <div style="overflow:auto; height:200px; width:100%; ">
+	  	<?=$tree?>
+	  	</div>
+	  </div>
+	  <div class="caozuo">
+		  <input type="submit" class="b_bnt01" value="保 存"/>
+		  <input type="reset" class="b_bnt01" value="取 消" onclick="$('#winregister').hide();$('#wincover').hide();"/>
+	  </div>
+	</form>
+	
+</div>
+
+<script>
+$(function(){
+	var h = 205;
+	$('.con_detail').height($(window).height()-h);
+	$(window).resize(function(){
+		$('.con_detail').height($(window).height()-h);
+	});
+});
+function check()
+{
+	if($('#u_department').val()=='0')
+	{
+		alert("请选择部门");
+		return false;
+	}
+	if($('#u_name').val()=='')
+	{
+		alert("请填写姓名");
+		return false;
+	}
+	if($('#u_account').val()=='')
+	{
+		alert("请填写账号");
+		return false;
+	}else{
+		var id = $('#u_id').val();
+		$.post('/index.php/user/checkAccount',{account:$('#u_account').val(),id:id},function(data){
+			if(data == '已存在'){
+				$('#error').html('此账号已存在,请更换');
+				return false;
+			}else{
+				$('#sub_form').submit();
+			}
+		});
+	}
+	/*if($('#u_phone').val()=='')
+	{
+		alert("请填写手机号");
+		return false;
+	}*/
+	//return true;
+}
+function addInfo()
+{
+	$('#error').html('');
+	$('#div_title').html('人员管理--新建人员');
+	$('#sub_form').attr('action', '/index.php/user/add');
+	$('#u_id').val('');
+	$('#u_name').val('');
+	$('#u_account').val('');
+	$('#u_department').val('');
+	$('#u_phone').val('');
+	$('#u_def_send').attr('checked',false);
+	
+	$('#wincover').show();
+	$('#tree_form').hide();
+	$('#sub_form').show();
+	$('#winregister').center();
+}
+function editInfo(i)
+{
+	$('#error').html('');
+	$('#div_title').html('人员管理--修改人员');
+	$('#sub_form').attr('action', '/index.php/user/update');
+	$('#u_id').val($('#id_'+i).val());
+	$('#u_name').val($('#name_'+i).html());
+	$('#u_account').val($('#account_'+i).html());
+	$('#u_department').val($('#department_'+i).val());
+	$('#u_phone').val($('#phone_'+i).html());
+	if($('#def_send_'+i).val()=='1')
+	{
+		$('#u_def_send').attr('checked',true);
+	}
+	else
+	{
+		$('#u_def_send').attr('checked',false);
+	}
+	
+	
+	$('#wincover').show();
+	$('#tree_form').hide();
+	$('#sub_form').show();
+	$('#winregister').center();
+}
+function delInfo(id)
+{
+	if(confirm("确认删除该部门吗？"))
+	{
+		$.post(
+			"/index.php/user/delete/",
+			{
+				id:id
+			},
+			function (data) //回传函数
+			{
+				if(data=='success')
+				{
+					alert('删除成功');
+					location.reload();
+				}
+				else
+				{
+					alert(data);
+				}
+			}
+		);
+	}
+}
+function userJurisdict(i)
+{
+	/*获取部门、个人权限*/
+	$.post(
+		"/index.php/user/get_jurisdict/",
+		{
+			id:$('#id_'+i).val(),
+			department:$('#department_'+i).val()
+		},
+		function (data) //回传函数
+		{
+			var json = JSON.parse(data);
+			if(json.success)
+			{
+				$('#div_title').html('人员管理--设置权限');
+				$('#t_uid').val($('#id_'+i).val());
+				
+				var arr_d = new Array();
+				var arr_u = new Array();
+				if(json.jurisdict_d)
+				arr_d = json.jurisdict_d.split(',');
+				if(json.jurisdict_u)
+				var arr_u = json.jurisdict_u.split(',');
+				
+				$("input[name='tree[]']").each(function(){
+					var checked = false;
+					var disabled = false;
+					for(var j=0; j<arr_d.length; j++)
+					{
+						if(arr_d[j]==$(this).val())
+						{
+							checked = true;
+							disabled = true;
+						}
+					}
+					for(var k=0; k<arr_u.length; k++)
+					{
+						if(arr_u[k]==$(this).val())
+						{
+							checked = true;
+						}
+					}
+					this.checked=checked;
+					this.disabled = disabled;
+				});
+				
+				$('#wincover').show();
+				$('#sub_form').hide();
+				$('#tree_form').show();
+				$('#winregister').center();
+			}
+			else
+			{
+				alert('权限获取失败，请重试');
+			}
+		}
+	);
+}
+function treeClick(obj,str)
+{
+	if(obj.checked)
+	{
+		var arr = str.split('.');
+		
+		$("input[name='tree[]']").each(function(){
+			var checked = false;
+			for(var j=0; j<arr.length; j++)
+			{
+				if(arr[j]==$(this).val())
+				{
+					checked = true;
+				}
+			}
+			if(checked)
+			{
+				this.checked=checked;
+			}
+			
+		});
+	}
+}
+
+function markUp(){
+	var obj = $('[name="sort"]:checked').closest('tr');
+	if(obj.prev('.tab_content').length != 0){
+		var prev=obj.prev('.tab_content').attr('id');
+		var ss=prev.split("_");
+		var current=obj.attr('id');
+		var tt=current.split("_");
+		$.post(
+				"/index.php/user/sort/",
+				{
+					obj_id:tt[1],obj_sort:tt[2],link_id:ss[1],link_sort:ss[2]
+				},
+				function (data) //回传函数
+				{
+					if(data == 'success'){
+						obj.attr('id','tr_'+tt[1]+'_'+ss[2]);
+						obj.prev('.tab_content').attr('id','tr_'+ss[1]+'_'+tt[2]);
+						obj.prev('.tab_content').before(obj);
+					}
+				}
+			);
+	}
+}
+
+function markDown(){
+	var obj = $('[name="sort"]:checked').closest('tr');
+	if(obj.next('.tab_content').length != 0){
+		var next=obj.next('.tab_content').attr('id');
+		var ss=next.split("_");
+		var current=obj.attr('id');
+		var tt=current.split("_");
+		$.post(
+				"/index.php/user/sort/",
+				{
+					obj_id:tt[1],obj_sort:tt[2],link_id:ss[1],link_sort:ss[2]
+				},
+				function (data) //回传函数
+				{
+					if(data == 'success'){
+						obj.attr('id','tr_'+tt[1]+'_'+ss[2]);
+						obj.next('.tab_content').attr('id','tr_'+ss[1]+'_'+tt[2]);
+						obj.next('.tab_content').after(obj);
+					}
+				}
+			);
+	}
+}
+</script>
+<? } ?>

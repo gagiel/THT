@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="77" ID="6" Name="XSZ_2002"
+	ImagePath="FJDMZJ\JXSZ\XSZ\XSZ_2002\001001.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="5" Type="4">
+			<Region Left="5446" Top="5620" Right="9515" Bottom="9735">
+				<RefAnchorList Size="2">
+					<RefAnchor ID="1" RefAnchorID="1" DistToAnchor="5048"
+						LocationType="2" />
+					<RefAnchor ID="2" RefAnchorID="1" DistToAnchor="8214"
+						LocationType="4" />
+				</RefAnchorList>
+			</Region>
+			<LineLocation MinNum="2" MaxNum="5" MinLength="1140"
+				MaxLength="4268" MinHeight="278" MaxHeight="781" MinSpace="167"
+				MaxSpace="976" LeftPlus="10" RightPlus="20" TopPlus="-5" BottomPlus="5">
+				<LineLocationRange Left="20" Top="0" Right="54"
+					Bottom="100" />
+				<LineLocationMethodList Size="2">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+					<LineLocationMethod Type="2">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="0" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="65535"
+				MaxPointWidth="100" MaxPointHeight="100" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="3" MaxNum="30" MinWidth="133"
+				MaxWidth="247" MinHeight="278" MaxHeight="641" MinSpace="0"
+				MaxSpace="1273" MinWHRatio="37" MaxWHRatio="100" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&lt;"
+					RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="1">
+						<CharRatio CharType="1" WHRatio="60" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="1" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="0" Offset="0" IsExist="7209071"
+					CompareType="0" Charset="" Text="核定载质量" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="6273" Top="6666" Right="7775" Bottom="7377" />
+				</TextLine>
+				<TextLine Index="1" FilterType="0" Offset="1" IsExist="6619244"
+					CompareType="0" Charset="" Text="驾驶室前排共乘" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="6406" Top="7796" Right="8469" Bottom="8340" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+	<AnchorList Size="1">
+		<Anchor ID="1" InheritedID="1" Type="2" RefType="2" PosX="5057"
+			PosY="571" Min="-1" Max="-1" Threshold="750" IsValid="0" />
+	</AnchorList>
+</SubTemplate>

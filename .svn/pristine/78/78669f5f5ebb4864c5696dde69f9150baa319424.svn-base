@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="142" ID="" Name="44Visa"
+	ImagePath="44JDMZJ\44Visa\巴西_陈媛IR.jpg" OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1"
+					CompareType="0" Charset="" Text="V[\U\D&lt;]{42}[\D&lt;]{1}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1348" Top="7578" Right="9942" Bottom="7922" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="0"
+					CompareType="0" Charset=""
+					Text="[\U\D]{1}[\U\D]{1}\D{4}[\U\D]{1}[\U\D]{1}[\D&lt;]{1}\D{1}CHN\D{7}[MF]{1}\D{7}[\U\D&lt;]{16}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1369" Top="8004" Right="9942" Bottom="8385" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

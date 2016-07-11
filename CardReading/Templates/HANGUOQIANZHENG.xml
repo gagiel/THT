@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="143" ID="12" Name="HANGUOQIANZHENG"
+	ImagePath="44JDMZJ\HANGUOQIANZHENG\韩国_张胜IR.jpg" OutputID="44">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="276" Top="7399" Right="9682" Bottom="9424" />
+			<LineLocation MinNum="2" MaxNum="5" MinLength="6250"
+				MaxLength="9800" MinHeight="194" MaxHeight="702" MinSpace="74"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="35" MaxNum="50" MinWidth="41"
+				MaxWidth="270" MinHeight="254" MaxHeight="448" MinSpace="31"
+				MaxSpace="130" MinWHRatio="25" MaxWHRatio="120" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="3">
+						<CharRatio CharType="2" WHRatio="78" Charset="" />
+						<CharRatio CharType="3" WHRatio="78" Charset="" />
+						<CharRatio CharType="10" WHRatio="85" Charset="&lt;" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1"
+					CompareType="0" Charset="" Text="V&lt;KOR[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="963" Top="7765" Right="9026" Bottom="8176" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="0"
+					CompareType="0" Charset=""
+					Text="P[\U\D]{1}\D{8}CHN\D{7}[FM]{1}\D{7}\U{2}\D{2}\U{2}\D{6}&lt;{4}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="1255" Top="8452" Right="8760" Bottom="8863" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

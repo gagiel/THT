@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="40" ID="13" Name="France"
+	ImagePath="44JDMZJ\HZ\FAGUO\001001.jpg" OutputID="532">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="5701724"
+					CompareType="0" Charset="" Text="P[\U&lt;]FRA[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="458" Top="7775" Right="9453" Bottom="8249" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6946927"
+					CompareType="0" Charset=""
+					Text="\D{2}\U{2}\D{6}FRA\D{7}[MF]\D{7}&lt;{14}\D{2}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="472" Top="8520" Right="9453" Bottom="8994" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

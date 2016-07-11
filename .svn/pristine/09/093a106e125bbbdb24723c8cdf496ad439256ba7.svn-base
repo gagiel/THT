@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MainTemplate>
+	<FilterTemplatePath>FilterTemplate.xml</FilterTemplatePath>
+	<SubTemplateListPath>SubTemplateList.xml</SubTemplateListPath>
+	<SubTemplatePath>Templates\</SubTemplatePath>
+	<ImagePath>Images\</ImagePath>
+	<TemplateGroup Index="0" Name="root" ImagePath="" Action="1"
+		AttachedTemplate="-1" ChildNum="3">
+		<FilterConfigList Size="1">
+			<FilterConfig RefFilter="3" FilterThresh="450"
+				FilterWeight="10" FeatureMode="0" InheritedFilter="-1" />
+		</FilterConfigList>
+		<TemplateGroup Index="1" Name="EDZ" ImagePath="EDZ\"
+			Action="1" AttachedTemplate="1" ChildNum="0" />
+		<TemplateGroup Index="2" Name="HZ" ImagePath="HZ\"
+			Action="1" AttachedTemplate="2" ChildNum="0" />
+		<TemplateGroup Index="3" Name="XBGATXZ" ImagePath="XBGATXZ\"
+			Action="1" AttachedTemplate="3" ChildNum="0" />
+	</TemplateGroup>
+</MainTemplate>

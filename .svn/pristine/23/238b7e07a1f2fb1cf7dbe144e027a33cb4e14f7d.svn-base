@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="1037" ID="23" Name="XBBMZ"
+	ImagePath="44JDMZJ\XBBMZ\001.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="1"
+					CompareType="0" Charset="" Text="B\U{1}CHN[\U0&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="328" Top="7802" Right="9942" Bottom="8209" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="65535"
+					CompareType="0" Charset=""
+					Text="B[\U\D]{9}\U{3}[\DO]{7}[FM][\DO]{7}[\U0]{13}\D{3}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="338" Top="8602" Right="9942" Bottom="9046" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

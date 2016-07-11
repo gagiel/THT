@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="13" ID="12" Name="WGRJLXK"
+	ImagePath="36JDMZJ\WGRJLXK\001001.jpg" OutputID="3">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="5701724"
+					CompareType="0" Charset="" Text="R[\U&lt;]CHN[\U&lt;]{31}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="134" Top="7882" Right="7462" Bottom="8326" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6946927"
+					CompareType="0" Charset=""
+					Text="[\U\D&lt;]{10}\U[\U&lt;]{2}\D{7}[MF]\D{7}[\U\D]{8}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="128" Top="8588" Right="7469" Bottom="9052" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

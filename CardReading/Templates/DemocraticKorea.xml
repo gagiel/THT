@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="92" ID="13" Name="DemocraticKorea"
+	ImagePath="44JDMZJ\HZ\CHAOXIAN\021057.jpg" OutputID="643">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="P[\U&lt;]PRK[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="296" Top="7823" Right="9271" Bottom="8249" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="-1163005939"
+					CompareType="0" Charset="" Text="\D{10}PRK\D{7}[FM][\D&lt;]{23}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="303" Top="8520" Right="9271" Bottom="8974" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

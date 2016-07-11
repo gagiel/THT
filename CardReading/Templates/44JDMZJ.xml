@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="15" ID="" Name="44JDMZJ" ImagePath="44JDMZJ\001002.jpg"
+	OutputID="">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="152277580"
+					CompareType="0" Charset="" Text="\U[\U&lt;]\U[\U&lt;]{2}[\U&lt;]{39}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="289" Top="8123" Right="9224" Bottom="8539" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="152280460"
+					CompareType="0" Charset=""
+					Text="[\U\D&lt;]{10}\U[\U&lt;]{2}\D{7}[MF]\D{7}[\U\D&lt;]{16}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="289" Top="8849" Right="9224" Bottom="9284" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

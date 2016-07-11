@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="75" ID="" Name="JZorXSZ"
+	ImagePath="FJDMZJ\JXSZ\JZorXSZ\001001.jpg" OutputID="">
+	<AnchorList Size="1">
+		<Anchor ID="1" InheritedID="1" Type="2" RefType="2" PosX="5130"
+			PosY="566" Min="-1" Max="-1" Threshold="750" IsValid="0" />
+	</AnchorList>
+</SubTemplate>

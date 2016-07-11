@@ -1,0 +1,93 @@
+<?php 
+$arr_jurisdict = explode(',',$this->session->userdata('user_jurisdict'));
+?>
+<div class="maincon">
+  <div class="sst_bg">
+    <p>当前位置：首页>投资意向管理>查看投资意向</p>
+    <div class="sst_sm">
+      	<?=$select?>
+    </div>
+  </div>
+  <div style="width: 80%; margin: 120px auto; padding-left: 50px; left:auto;position:fixed;">
+	<div class="caozuo6">
+		<input type="hidden" value="<?=$thispage?>" id="thispage"/>
+		<? if(in_array('25',$arr_jurisdict)){ ?>
+			<input type="button" class="b_bnt01" value="删 除" onClick="delInfo(<?=$id?>)" />
+	    <? } ?>
+		
+	</div>
+	<div class="caozuo8">
+		<? if(in_array('25',$arr_jurisdict)){ ?>
+			<input type="button" class="b_bnt01" value="编 辑" onClick="window.location.href='/index.php/investment/edit/<?=$id?>/<?=$thispage?>'" />
+	    <? } ?>
+		<input type="button" class="b_bnt01" value="返 回" onclick="window.location.href='/index.php/investment/index/<?=$thispage?>'" value="back"/>
+	</div>
+  </div>
+  <div class="con_detail" style="top:155px;">	
+    <table cellpadding="0" cellspacing="0" class="biaozhun">
+	  <tr class="tab_tit">
+		<td colspan="3">投资意向</td>
+	  </tr>
+	  <tr> 
+		<td width="8%" class="cklt">产业名称：</td>
+		<td width="42%" class="cknr2"><?=$industry?></td>
+	  </tr>
+	   <tr> 
+		<td width="8%" class="cklt">投资部门：</td>
+		<td width="42%" class="cknr2"><?=$department?></td>
+	  </tr>
+	  <tr> 
+		<td width="8%" class="cklt">部门电话：</td>
+		<td width="42%" class="cknr2"><?=$tel?></td>
+	  </tr>
+	</table>
+  </div>
+  <div class="caozuo5" style="width: 80%; margin: 10px auto; padding-left: 50px; left:auto;">
+	<div class="caozuo6">
+		<input type="hidden" value="<?=$thispage?>" id="thispage"/>
+		<? if(in_array('23',$arr_jurisdict)){ ?>
+			<input type="button" class="b_bnt01" value="删 除" onClick="delInfo(<?=$id?>)" />
+	    <? } ?>
+	</div>
+	<div class="caozuo8">
+		<? if(in_array('23',$arr_jurisdict)){ ?>
+			<input type="button" class="b_bnt01" value="编 辑" onClick="window.location.href='/index.php/investment/edit/<?=$id?>/<?=$thispage?>'" />
+	    <? } ?>
+		<input type="button" class="b_bnt01" value="返 回" onclick="window.location.href='/index.php/investment/index/<?=$thispage?>'" value="back"/>
+	</div>
+  </div>
+  
+</div>
+<script>
+
+function delInfo(id)
+{
+	if(confirm("确认删除该条记录吗？"))
+	{
+		$.post(
+			"/index.php/investment/delete",
+			{
+				ids:id
+			},
+			function (data) //回传函数
+			{
+				alert(data);
+				if(data=='删除成功')
+				{
+					window.location.href='/index.php/investment/index';
+				}
+			}
+		);
+	}
+}
+</script>
+
+<script type="text/javascript">
+$(function(){
+	var h = 235;
+	$('.con_detail').height($(window).height()-h);
+	$(window).resize(function(){
+		$('.con_detail').height($(window).height()-h);
+	});
+});
+</script>

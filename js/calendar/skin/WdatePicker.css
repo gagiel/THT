@@ -1,0 +1,13 @@
+.Wdate{
+	border:#a0a0a0 1px solid;
+	height:24px;
+	background:#fff url(datePicker.gif) no-repeat right;
+	float: left;
+	font-family: "微软雅黑","Helvetica Neue","Microsoft Yahei","冬青黑体简体中文 w3",Helvetica,STheiti,宋体,Arial,Tahoma,sans-serif,serif;
+	margin:5px auto;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

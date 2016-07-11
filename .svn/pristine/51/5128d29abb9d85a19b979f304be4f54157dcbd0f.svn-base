@@ -1,0 +1,311 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 14-12-30
+ * Time: 下午6:56
+ */
+
+
+/*
+ * 联系人整合数据库模型
+ */
+class M_contact_total extends CI_Model
+{
+    public function __construct()
+    {
+        $this->load->database();
+        $this->load->helper('url');
+    }
+
+    /*
+     * 联系人数据
+     * 为了获取以联系人为主的信息
+     * 信息包括：联系人info(contact) 企业名称(company) 分类名称(company_type) 职位(company_contact)
+     * 以联系人表为主表 并把数据放在缓存文件中 每次数据库有修改时都会删除缓存重新生成(暂时放在缓存)
+     * 返回的数组以contactid为主键
+     */
+
+    public function join_contact($id = FALSE, $like = FALSE, $where = FALSE , $typein = FALSE)
+    {
+        $this->db->select('t_contact.*,t_company.name company_name,t_company.id company_id,t_company.settle settle,t_company_type.name type_name,t_company_type.id type_id,t_company_contact.position position_new,t_company_contact.id relax_id');
+        $this->db->from('t_contact'); //主表
+        $this->db->join('t_company_contact', 't_company_contact.contact_id=t_contact.id', 'left outer'); //连接中间表
+        $this->db->join('t_company_type', 't_company_type.id = t_company_contact.type_id', 'left outer'); //通过中间表连接分类表
+        $this->db->join('t_company', 't_company.id=t_company_contact.company_id', 'left outer'); //通过中间表连接企业表
+
+        $this->db->where('t_contact.del', 0);
+        if ($id) {
+            $this->db->where('t_contact.id', $id);
+        }
+        if ($like) {
+            $this->db->like($like['key'], $like['match'], 'both');
+        }
+        if ($where) {
+            $this->db->where($where);
+        }
+        if (is_array($typein) && count($typein)>0) {
+        	$this->db->where_in('t_company_type.id',$typein);
+        } 
+        $query = $this->db->get();
+        
+        $contactArr = $query->result_array();
+        $contact_cache_array = array();
+        foreach ($contactArr as $v) {
+            $contact_cache_array[$v['id']]['id'] = $v['id']; //联系人id
+            $contact_cache_array[$v['id']]['owner'] = $v['owner']; //名片主人
+            $contact_cache_array[$v['id']]['name'] = $v['name']; //联系人姓名
+            $contact_cache_array[$v['id']]['tel'] = $v['tel'];
+            $contact_cache_array[$v['id']]['mobile'] = $v['mobile']; //手机-多个
+            $contact_cache_array[$v['id']]['fax'] = $v['fax'];
+            $contact_cache_array[$v['id']]['email'] = $v['email'];
+            $contact_cache_array[$v['id']]['remark'] = $v['remark']; //个人信息
+            $contact_cache_array[$v['id']]['pic_front'] = $v['pic_front'];
+            $contact_cache_array[$v['id']]['pic_reverse'] = $v['pic_reverse'];
+            $contact_cache_array[$v['id']]['star'] = $v['star'];
+            $contact_cache_array[$v['id']]['affairs_contact'] = $v['affairs_contact']; //区内事务
+            $contact_cache_array[$v['id']]['address_contact'] = $v['address_contact']; //联系人地址-多个
+            $contact_cache_array[$v['id']]['public'] = $v['public']; //是否公开
+            $contact_cache_array[$v['id']]['company_name'][] = $v['company_name']; //企业名称
+            $contact_cache_array[$v['id']]['company_id'][] = $v['company_id']; //企业id
+            $contact_cache_array[$v['id']]['type_name'][] = $v['type_name']; //分类名称
+            $contact_cache_array[$v['id']]['type_id'][] = $v['type_id']; //分类id
+            $contact_cache_array[$v['id']]['position'][] = $v['position_new'];
+            $contact_cache_array[$v['id']]['settle'][] = $v['settle'];
+            $contact_cache_array[$v['id']]['relax'][] = $v['relax_id'];
+        }
+
+        return $contact_cache_array;
+    }
+
+
+    public function join_contact_num($id = FALSE, $like = FALSE, $where = FALSE , $typein = FALSE)
+    {
+//        var_dump($where);exit();
+        $this->db->select('t_contact.*,t_company.name company_name,t_company.id company_id,t_company_type.name type_name,t_company_type.id type_id,t_company_contact.position position_new');
+        $this->db->from('t_contact'); //主表
+        $this->db->join('t_company_contact', 't_company_contact.contact_id=t_contact.id', 'left outer'); //连接中间表
+        $this->db->join('t_company_type', 't_company_type.id = t_company_contact.type_id', 'left outer'); //通过中间表连接分类表
+        $this->db->join('t_company', 't_company.id=t_company_contact.company_id', 'left outer'); //通过中间表连接企业表
+        
+        $this->db->where('t_contact.del', 0);
+        if ($id) {
+            $this->db->where('t_contact.id', $id);
+        }
+        if ($like) {
+            $this->db->like($like['key'], $like['match'], 'both');
+        }
+        if ($where) {
+            $this->db->where($where);
+        }
+        if (is_array($typein) && count($typein)>0) {
+        	$this->db->where_in('t_company_type.id',$typein);
+        } 
+        $query = $this->db->get();
+        $contactnum = $query->num_rows();
+
+        return $contactnum;
+    }
+    /*
+     * 往来关系数据
+     * 为了获取以往来关系为主的信息
+     * 信息包括：往来记录info(t_activity) company_name(t_company) 接待人员(t_user)
+     * 以联系人表为主表 并把数据放在缓存文件中 每次数据库有修改时都会删除缓存重新生成
+     */
+
+    public function join_activity($id = FALSE, $where = FALSE, $like = FALSE)
+    {
+        $this->db->select('t_activity.id activityid,t_activity.*,t_company.name company_name,t_company.id company_id,t_contact.name contact_name,t_contact.id contact_id');
+        $this->db->from('t_activity'); //主表
+        $this->db->join('t_company_activity', 't_company_activity.activity_id = t_activity.id', 'left outer'); //连接中间表:企业往来表
+        $this->db->join('t_contact_activity', 't_contact_activity.activity_id = t_activity.id', 'left outer'); //连接中间表:联系人往来表
+        $this->db->join('t_company', 't_company.id = t_company_activity.company_id', 'left outer'); //连接企业表-企业名称
+        $this->db->join('t_contact', 't_contact.id = t_contact_activity.contact_id', 'left outer'); //连接联系人表-联系人名称
+
+        if ($id) {
+            $query = $this->db->where('t_activity.id', $id)->get();
+        } elseif ($where || $like) {
+            if (!empty($like)) {
+                $this->db->like($like['key'], $like['match'], 'both');
+            }
+            if (!empty($where)) {
+                $this->db->where($where);
+            }
+            $query = $this->db->get();
+        } else {
+            $query = $this->db->get();
+        }
+        $activityArr = $query->result_array();
+
+        $activity_cache_array = array();
+        foreach ($activityArr as $v) {
+            $activity_cache_array[$v['id']]['id'] = $v['activityid']; //往来记录id
+            $activity_cache_array[$v['id']]['cdate'] = $v['cdate']; //活动时间
+            $activity_cache_array[$v['id']]['ctype'] = $v['ctype']; //往来类型 1来 2往
+            $activity_cache_array[$v['id']]['user'] = $v['user']; //接待人员ID
+            $activity_cache_array[$v['id']]['info'] = $v['info']; //内容
+            $activity_cache_array[$v['id']]['remark1'] = $v['remark1']; //备注
+
+            $activity_cache_array[$v['id']]['company_name'][] = $v['company_name']; //企业名称
+            $activity_cache_array[$v['id']]['company_id'][] = $v['company_id']; //企业id
+            $activity_cache_array[$v['id']]['contact_name'][] = $v['contact_name']; //联系人名称
+            $activity_cache_array[$v['id']]['contact_id'][] = $v['contact_id']; //联系人id
+        }
+        foreach ($activity_cache_array as $k => $v) {
+            $activity_cache_array[$k]['company_name'] = array_values(array_unique($v['company_name']));
+            $activity_cache_array[$k]['company_id'] = array_values(array_unique($v['company_id']));
+            $activity_cache_array[$k]['contact_name'] = array_values(array_unique($v['contact_name']));
+            $activity_cache_array[$k]['contact_id'] = array_values(array_unique($v['contact_id']));
+        }
+        return $activity_cache_array;
+
+    }
+
+    /*
+     * 库存信息
+     * 通过往来ID获取 库存和礼品名称相连
+     * @param string id 往来ID
+     * return array 返回商品信息
+     */
+    public function join_stock($id)
+    {
+        $this->db->select('t_storage.*,t_stock.*');
+        $this->db->from('t_storage'); //主表
+        $this->db->join('t_stock', 't_storage.stock = t_stock.id', 'left outer');
+
+        $query = $this->db->where('t_storage.activity', $id)->get();
+        return $query->result_array();
+    }
+
+    /*
+     * 添加数据
+     * @param array data 整体数据数组
+     * @param string t_name 插入的表名
+     * return 插入数据的id
+     */
+    public function add($data, $t_name)
+    {
+        $res = $this->db->insert($t_name, $data);
+        return $id = $this->db->insert_id($res);
+    }
+
+    //添加多条数据
+    public function add_total($t_name, $data)
+    {
+        $res = $this->db->insert_batch($t_name, $data);
+        return $res;
+    }
+
+    /*
+     * 查询数据
+     * @param string id 查询表的主键id
+     * return array 返回一维数组 因为id唯一
+     *
+     * @param string tname 要查询的表名
+     * return array 返回二维数据
+     *
+     * @param string where 查询表的条件
+     * return array 返回二维数组
+     */
+    public function get_field($id = FALSE, $tname, $where = FALSE, $like = FALSE)
+    {
+        if ($where) {
+            if ($like) {
+                $this->db->like($like['key'], $like['match'], 'both');
+            }
+            $query = $this->db->get_where($tname, $where);
+            return $query->result_array();
+        }
+        if (!$where && $like) {
+            $this->db->like($like['key'], $like['match'], 'both');
+            $query = $this->db->get_where($tname);
+            return $query->result_array();
+        }
+
+        if ($id === FALSE) {
+            $query = $this->db->get($tname);
+            return $query->result_array();
+        }
+
+        $query = $this->db->get_where($tname, array('id' => $id));
+        return $query->row_array();
+    }
+
+
+    /*
+     * 修改数据
+     * @param string id 修改数据在表中的主键id
+     * @param string tname 修改的表名
+     * @param array data 修改的数据
+     * return bool
+     */
+    public function edit($id, $tname, $data)
+    {
+        return $this->db->where('id', $id)->update($tname, $data);
+    }
+
+    /*
+     * 删除数据
+     * @param string id 删除数据在表中的主键id
+     * @param string tname 数据所在的表名
+     * return bool
+     */
+    public function del($id, $tname, $where = FALSE)
+    {
+        if ($where) {
+            return $this->db->where($where)->delete($tname);
+        } else {
+            return $this->db->where('id', $id)->delete($tname);
+        }
+
+    }
+
+
+    /*
+     * 假删除数据 即删除之后 数据不显示但是数据库不动
+     * 暂时只有企业和联系人中需要
+     * @param string id 删除数据在表中的主键id
+     * @param string tname 数据所在表名
+     */
+    public function stop($id, $tname)
+    {
+        return $this->db->where('id', $id)->update($tname, array('del' => 1));
+    }
+
+
+    /*
+     * 检查表中name字段是否重复
+     * @param string tname 要查询的表名
+     * @param string name 传入的名称
+     */
+
+    public function check_name($tname, $name)
+    {
+        $query = $this->db->get_where($tname, array('name' => $name));
+        return $query->row_array();
+    }
+
+    public function check_same_name($tname,$name,$id){
+        $where="name ='".$name."' and id!='".$id."';";
+        $query = $this->db->get_where($tname,$where);
+        return $query->row_array(); 
+    }
+
+    /**
+     * 获取分页的数目
+     */
+    public function get_num($where = FALSE, $like = FALSE, $tname)
+    {
+        if ($where) {
+            if ($like) {
+                $this->db->like($like['key'], $like['match'], 'both');
+            }
+            $query = $this->db->get_where($tname, $where);
+            return $query->num_rows();
+        } else {
+            $query = $this->db->get($tname);
+            return $query->num_rows();
+        }
+    }
+
+}

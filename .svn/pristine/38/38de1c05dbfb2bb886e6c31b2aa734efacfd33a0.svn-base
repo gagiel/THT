@@ -1,0 +1,54 @@
+<?php
+/**
+ * Created by yuz.
+ * User: 于政
+ * Date: 2016/7/7
+ * Time: 16:08
+ */
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+header("Content-type:text/html;charset=utf-8");
+
+class register extends CI_Controller{
+    /**
+     * 获取post信息验证并保存
+     **/
+    public function save(){
+        $data = array(
+            'account'		=> $this->input->post('account'),
+            'password'		=> md5($this->input->post('password')),
+            'name'			=> $this->input->post('name'),
+            'department'	=> $this->input->post('department'),
+            'phone'			=> $this->input->post('phone'),
+            'def_send'		=> 0,
+            'reviewed'      => 0,
+            'register_type' => 1,
+        );
+        $i=$this->checkAccount($this->input->post('account'));
+        if($i){
+            $this->load->model('m_user');
+            if($this->m_user->user_insert($data))
+            {
+                echo 1;
+            }else{
+                echo 2;
+            }
+        }else{
+            echo 3;
+        }
+
+    }
+    /**
+     * 检查账号是否已经存在
+     */
+    public function checkAccount($account){
+        $this->load->model('m_user');
+        $result = $this->m_user->user_get(array('account'=>$account));
+        if($result){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+}

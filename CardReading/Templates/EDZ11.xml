@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="1045" ID="2" Name="EDZ11"
+	ImagePath="FJDMZJ\EDZHML\EDZ\EDZ11\096001.jpg" OutputID="1">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="2550" Top="7317" Right="9969" Bottom="9793" />
+			<LineLocation MinNum="1" MaxNum="4" MinLength="4156"
+				MaxLength="9500" MinHeight="317" MaxHeight="888" MinSpace="400"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="15" MaxNum="35" MinWidth="100"
+				MaxWidth="341" MinHeight="349" MaxHeight="825" MinSpace="30"
+				MaxSpace="240" MinWHRatio="25" MaxWHRatio="110" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="4">
+						<CharRatio CharType="2" WHRatio="71" Charset="" />
+						<CharRatio CharType="10" WHRatio="25" Charset="1" />
+						<CharRatio CharType="3" WHRatio="64" Charset="" />
+						<CharRatio CharType="1" WHRatio="106" Charset="" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="1">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="2004"
+					CompareType="0" Charset="" Text="\D{17}[X\D]" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="2540" Top="8031" Right="8985" Bottom="8777" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="148" ID="12" Name="44Visa_2"
+	ImagePath="44JDMZJ\DLYGWLGATXZ\44Visa_2\俄罗斯_陈冬虹IR.jpg" OutputID="46">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="3" Type="4">
+			<Region Left="98" Top="7130" Right="9750" Bottom="9618" />
+			<LineLocation MinNum="2" MaxNum="4" MinLength="7218"
+				MaxLength="9729" MinHeight="209" MaxHeight="463" MinSpace="104"
+				MaxSpace="700" LeftPlus="-10" RightPlus="20" TopPlus="-5"
+				BottomPlus="5">
+				<LineLocationRange Left="0" Top="0" Right="100"
+					Bottom="100" />
+				<LineLocationMethodList Size="1">
+					<LineLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</LineLocationMethod>
+				</LineLocationMethodList>
+			</LineLocation>
+			<CharLocation IsConfirmParams="0" IsIgnorePoint="0"
+				MaxPointWidth="1" MaxPointHeight="10" NumType="0" IsSameSpace="0"
+				IsSameWidth="0" IsSameHeight="0" MinNum="40" MaxNum="50" MinWidth="41"
+				MaxWidth="229" MinHeight="194" MaxHeight="463" MinSpace="31"
+				MaxSpace="130" MinWHRatio="25" MaxWHRatio="110" IsRemoveLine="0"
+				LineType="1" IsEraseStart="0">
+				<CharLocationMethodList Size="1">
+					<CharLocationMethod Type="3">
+						<ImageProcessingList Size="2">
+							<ImageProcessing Type="1">
+								<ColorToGray ColorFilter="13" />
+							</ImageProcessing>
+							<ImageProcessing Type="2">
+								<GrayToBin Method="6" BlockNum="1" />
+							</ImageProcessing>
+						</ImageProcessingList>
+					</CharLocationMethod>
+				</CharLocationMethodList>
+			</CharLocation>
+			<RecogEngineList Size="1">
+				<RecogEngine MainType="1" SubType="7" FilterType="1"
+					FillingMethod="1" FilterPlus="" RecogType="1" RecogImgeType="0">
+					<ImageProcessingList Size="1">
+						<ImageProcessing Type="1">
+							<ColorToGray ColorFilter="13" />
+						</ImageProcessing>
+					</ImageProcessingList>
+					<CharRatioList Size="3">
+						<CharRatio CharType="2" WHRatio="78" Charset="" />
+						<CharRatio CharType="3" WHRatio="78" Charset="" />
+						<CharRatio CharType="10" WHRatio="85" Charset="&lt;" />
+					</CharRatioList>
+				</RecogEngine>
+			</RecogEngineList>
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1"
+					CompareType="0" Charset="" Text="V[\U\D&lt;]{42}[\D&lt;]{1}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="203" Top="7473" Right="9744" Bottom="8011" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="0"
+					CompareType="0" Charset=""
+					Text="[\U\D]{1}[\U\D]{1}\D{4}[\U\D]{1}[\U\D]{1}[\D&lt;]{1}\D{1}CHN\D{7}[MF]{1}\D{7}[\U\D&lt;]{16}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="218" Top="8153" Right="9744" Bottom="8692" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="35" ID="13" Name="Mexicanos"
+	ImagePath="44JDMZJ\HZ\MOXIGE\001001.jpg" OutputID="572">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="2" Offset="1" IsExist="7209071"
+					CompareType="0" Charset="" Text="P[\U&lt;]MEX[\U&lt;]{39}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="384" Top="8104" Right="9271" Bottom="8529" />
+				</TextLine>
+				<TextLine Index="1" FilterType="2" Offset="0" IsExist="6619244"
+					CompareType="0" Charset="" Text="\D{10}MEX\D{7}[MF]\D{7}&lt;{14}\D{2}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="350" Top="8829" Right="9176" Bottom="9255" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>

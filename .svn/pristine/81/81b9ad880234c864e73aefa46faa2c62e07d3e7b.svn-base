@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubTemplate Index="158" ID="12" Name="DEGUOQIANZHENG"
+	ImagePath="36JDMZJ\DEGUOQIANZHENG\德国_陈琳IR.jpg" OutputID="14">
+	<FilterInfoList Size="1">
+		<FilterInfo RefFilter="2" Type="4">
+			<TextMatch Method="3" />
+			<TextLineList Size="2">
+				<TextLine Index="0" FilterType="1" Offset="0" IsExist="1"
+					CompareType="0" Charset="" Text="VCD&lt;&lt;[\U&lt;]{31}" CharNum="0"
+					ForegroundColor="0" BackgroundColor="0">
+					<Region Left="677" Top="7877" Right="9942" Bottom="8288" />
+				</TextLine>
+				<TextLine Index="1" FilterType="1" Offset="1" IsExist="0"
+					CompareType="0" Charset="" Text="\D{10}CHN\D{7}[FM]{1}\D{7}&lt;\D{7}"
+					CharNum="0" ForegroundColor="0" BackgroundColor="0">
+					<Region Left="291" Top="8497" Right="9942" Bottom="8946" />
+				</TextLine>
+			</TextLineList>
+		</FilterInfo>
+	</FilterInfoList>
+</SubTemplate>
